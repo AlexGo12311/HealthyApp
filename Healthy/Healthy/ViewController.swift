@@ -12,7 +12,7 @@ class ViewController: UIViewController {
     var testLabel: UILabel = {
         let testLabel = UILabel()
         testLabel.text = "Hello, world!"
-        testLabel.textColor = .white
+        testLabel.textColor = AccentColors.textColor
         testLabel.font = .Montserrat.BoldItalic.size(of: 24)
         testLabel.textAlignment = .center
         
@@ -22,7 +22,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = .red
+        self.view.backgroundColor = AccentColors.bgColor
         configureTest()
         
     }
