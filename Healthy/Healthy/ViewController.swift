@@ -13,7 +13,7 @@ class ViewController: UIViewController {
         let testLabel = UILabel()
         testLabel.text = "Hello, world!"
         testLabel.textColor = .white
-        testLabel.font = .systemFont(ofSize: 36)
+        testLabel.font = .Montserrat.BoldItalic.size(of: 24)
         testLabel.textAlignment = .center
         
         return testLabel
