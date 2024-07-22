@@ -33,6 +33,8 @@
 		4D65E54B2C4EB2C200FA85A1 /* OFL.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4D65E5362C4EB2C200FA85A1 /* OFL.txt */; };
 		4D65E54C2C4EB2C200FA85A1 /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4D65E5372C4EB2C200FA85A1 /* README.txt */; };
 		4D65E54F2C4EB38E00FA85A1 /* UIFont+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D65E54E2C4EB38E00FA85A1 /* UIFont+Ext.swift */; };
+		4D65E5512C4EBB6500FA85A1 /* UIColor+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D65E5502C4EBB6500FA85A1 /* UIColor+Ext.swift */; };
+		4D65E5532C4EBC6F00FA85A1 /* AccentColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D65E5522C4EBC6F00FA85A1 /* AccentColors.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,6 +66,8 @@
 		4D65E5362C4EB2C200FA85A1 /* OFL.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = OFL.txt; sourceTree = "<group>"; };
 		4D65E5372C4EB2C200FA85A1 /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
 		4D65E54E2C4EB38E00FA85A1 /* UIFont+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Ext.swift"; sourceTree = "<group>"; };
+		4D65E5502C4EBB6500FA85A1 /* UIColor+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Ext.swift"; sourceTree = "<group>"; };
+		4D65E5522C4EBC6F00FA85A1 /* AccentColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccentColors.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +116,7 @@
 			children = (
 				4D65E54D2C4EB36000FA85A1 /* Extensions */,
 				4D65E4CC2C4EAF7400FA85A1 /* Fonts */,
+				4D65E5522C4EBC6F00FA85A1 /* AccentColors.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -155,6 +160,7 @@
 			isa = PBXGroup;
 			children = (
 				4D65E54E2C4EB38E00FA85A1 /* UIFont+Ext.swift */,
+				4D65E5502C4EBB6500FA85A1 /* UIColor+Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -251,8 +257,10 @@
 			files = (
 				4D65E54F2C4EB38E00FA85A1 /* UIFont+Ext.swift in Sources */,
 				4D65E4BC2C4EA71E00FA85A1 /* ViewController.swift in Sources */,
+				4D65E5512C4EBB6500FA85A1 /* UIColor+Ext.swift in Sources */,
 				4D65E4B82C4EA71E00FA85A1 /* AppDelegate.swift in Sources */,
 				4D65E4BA2C4EA71E00FA85A1 /* SceneDelegate.swift in Sources */,
+				4D65E5532C4EBC6F00FA85A1 /* AccentColors.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
