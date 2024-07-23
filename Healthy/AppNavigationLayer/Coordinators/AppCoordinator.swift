@@ -27,6 +27,7 @@ private extension AppCoordinator {
     }
     
     func showMainFlow() {
+        guard let navigationController = navigationController else { return }
         
     }
 }
