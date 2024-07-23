@@ -23,8 +23,9 @@ class TabBarController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        tabBar.backgroundColor = .white
+        tabBar.layer.cornerRadius = CGFloat(24.0)
+        tabBar.tintColor = AccentColors.mainBlue
     }
     
 
