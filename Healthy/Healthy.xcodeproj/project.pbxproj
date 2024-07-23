@@ -35,6 +35,7 @@
 		4D65E54F2C4EB38E00FA85A1 /* UIFont+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D65E54E2C4EB38E00FA85A1 /* UIFont+Ext.swift */; };
 		4D65E5512C4EBB6500FA85A1 /* UIColor+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D65E5502C4EBB6500FA85A1 /* UIColor+Ext.swift */; };
 		4D65E5532C4EBC6F00FA85A1 /* AccentColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D65E5522C4EBC6F00FA85A1 /* AccentColors.swift */; };
+		4D65E5582C4F8B2700FA85A1 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D65E5572C4F8B2700FA85A1 /* Coordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -68,6 +69,7 @@
 		4D65E54E2C4EB38E00FA85A1 /* UIFont+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Ext.swift"; sourceTree = "<group>"; };
 		4D65E5502C4EBB6500FA85A1 /* UIColor+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Ext.swift"; sourceTree = "<group>"; };
 		4D65E5522C4EBC6F00FA85A1 /* AccentColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccentColors.swift; sourceTree = "<group>"; };
+		4D65E5572C4F8B2700FA85A1 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +86,7 @@
 		4D65E4AB2C4EA71E00FA85A1 = {
 			isa = PBXGroup;
 			children = (
+				4D65E5542C4F8AED00FA85A1 /* AppNavigationLayer */,
 				4D65E4CB2C4EAF6A00FA85A1 /* Resources */,
 				4D65E4B62C4EA71E00FA85A1 /* Healthy */,
 				4D65E4B52C4EA71E00FA85A1 /* Products */,
@@ -163,6 +166,30 @@
 				4D65E5502C4EBB6500FA85A1 /* UIColor+Ext.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		4D65E5542C4F8AED00FA85A1 /* AppNavigationLayer */ = {
+			isa = PBXGroup;
+			children = (
+				4D65E5562C4F8B1000FA85A1 /* Controllers */,
+				4D65E5552C4F8B0600FA85A1 /* Coordinators */,
+			);
+			path = AppNavigationLayer;
+			sourceTree = "<group>";
+		};
+		4D65E5552C4F8B0600FA85A1 /* Coordinators */ = {
+			isa = PBXGroup;
+			children = (
+				4D65E5572C4F8B2700FA85A1 /* Coordinator.swift */,
+			);
+			path = Coordinators;
+			sourceTree = "<group>";
+		};
+		4D65E5562C4F8B1000FA85A1 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -261,6 +288,7 @@
 				4D65E4B82C4EA71E00FA85A1 /* AppDelegate.swift in Sources */,
 				4D65E4BA2C4EA71E00FA85A1 /* SceneDelegate.swift in Sources */,
 				4D65E5532C4EBC6F00FA85A1 /* AccentColors.swift in Sources */,
+				4D65E5582C4F8B2700FA85A1 /* Coordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
