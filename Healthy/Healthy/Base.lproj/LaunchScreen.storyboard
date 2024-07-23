@@ -22,25 +22,10 @@
                                     <constraint firstAttribute="height" constant="150" id="yWQ-wf-Lgg"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BD4-af-pwp">
-                                <rect key="frame" x="146" y="738.66666666666663" width="101" height="29.333333333333371"/>
-                                <attributedString key="attributedText">
-                                    <fragment content="Healthy">
-                                        <attributes>
-                                            <color key="NSColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <font key="NSFont" size="24" name="Montserrat-ExtraBoldItalic"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                        </attributes>
-                                    </fragment>
-                                </attributedString>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" red="0.14509806040000001" green="0.27843138579999999" blue="0.77647060160000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
-                            <constraint firstItem="BD4-af-pwp" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" constant="-50" id="4MC-rT-Br8"/>
-                            <constraint firstItem="BD4-af-pwp" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="Dog-bB-HWb"/>
                             <constraint firstItem="zNG-v1-4QI" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="o9j-hD-tpE"/>
                             <constraint firstItem="zNG-v1-4QI" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="pke-SU-u03"/>
                         </constraints>

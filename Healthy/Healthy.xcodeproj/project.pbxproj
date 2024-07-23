@@ -43,6 +43,8 @@
 		4D65E5642C4FA12400FA85A1 /* AppointmentCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D65E5632C4FA12400FA85A1 /* AppointmentCoordinator.swift */; };
 		4D65E5662C4FA15F00FA85A1 /* ProfileCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D65E5652C4FA15F00FA85A1 /* ProfileCoordinator.swift */; };
 		4D65E5682C4FA1CC00FA85A1 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D65E5672C4FA1CC00FA85A1 /* TabBarController.swift */; };
+		4D65E5732C4FEF3700FA85A1 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D65E5722C4FEF3700FA85A1 /* OnboardingViewController.swift */; };
+		4D65E5752C4FEF4B00FA85A1 /* OnboardingViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D65E5742C4FEF4B00FA85A1 /* OnboardingViewPresenter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -84,6 +86,8 @@
 		4D65E5632C4FA12400FA85A1 /* AppointmentCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentCoordinator.swift; sourceTree = "<group>"; };
 		4D65E5652C4FA15F00FA85A1 /* ProfileCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCoordinator.swift; sourceTree = "<group>"; };
 		4D65E5672C4FA1CC00FA85A1 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		4D65E5722C4FEF3700FA85A1 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
+		4D65E5742C4FEF4B00FA85A1 /* OnboardingViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewPresenter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +104,7 @@
 		4D65E4AB2C4EA71E00FA85A1 = {
 			isa = PBXGroup;
 			children = (
+				4D65E5702C4FEF1300FA85A1 /* UILayer */,
 				4D65E5542C4F8AED00FA85A1 /* AppNavigationLayer */,
 				4D65E4CB2C4EAF6A00FA85A1 /* Resources */,
 				4D65E4B62C4EA71E00FA85A1 /* Healthy */,
@@ -213,6 +218,23 @@
 			path = Controllers;
 			sourceTree = "<group>";
 		};
+		4D65E5702C4FEF1300FA85A1 /* UILayer */ = {
+			isa = PBXGroup;
+			children = (
+				4D65E5712C4FEF2400FA85A1 /* Onboarding */,
+			);
+			path = UILayer;
+			sourceTree = "<group>";
+		};
+		4D65E5712C4FEF2400FA85A1 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				4D65E5722C4FEF3700FA85A1 /* OnboardingViewController.swift */,
+				4D65E5742C4FEF4B00FA85A1 /* OnboardingViewPresenter.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -310,12 +332,14 @@
 				4D65E5512C4EBB6500FA85A1 /* UIColor+Ext.swift in Sources */,
 				4D65E4B82C4EA71E00FA85A1 /* AppDelegate.swift in Sources */,
 				4D65E55E2C4F9A0700FA85A1 /* OnboardingCoordinator.swift in Sources */,
+				4D65E5732C4FEF3700FA85A1 /* OnboardingViewController.swift in Sources */,
 				4D65E55A2C4F94BA00FA85A1 /* AppCoordinator.swift in Sources */,
 				4D65E5662C4FA15F00FA85A1 /* ProfileCoordinator.swift in Sources */,
 				4D65E4BA2C4EA71E00FA85A1 /* SceneDelegate.swift in Sources */,
 				4D65E5602C4FA0BE00FA85A1 /* HomeCoordinator.swift in Sources */,
 				4D65E5682C4FA1CC00FA85A1 /* TabBarController.swift in Sources */,
 				4D65E5532C4EBC6F00FA85A1 /* AccentColors.swift in Sources */,
+				4D65E5752C4FEF4B00FA85A1 /* OnboardingViewPresenter.swift in Sources */,
 				4D65E5582C4F8B2700FA85A1 /* Coordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
