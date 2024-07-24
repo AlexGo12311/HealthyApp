@@ -9,9 +9,10 @@ import UIKit
 
 class OnboardingLayerController: UIViewController {
 
-    var image: UIImage
-    var titleText: String
-    var descriptionText: String
+    let image: UIImage
+    let titleText: String
+    let descriptionText: String
+    let buttonText: String
     
     private let imageView = UIImageView()
     private let titleLabel = UILabel()
@@ -22,10 +23,11 @@ class OnboardingLayerController: UIViewController {
         setupLayout()
     }
     
-    init(image: UIImage, titleText: String, descriptionText: String) {
+    init(image: UIImage, titleText: String, descriptionText: String, buttonText: String) {
         self.image = image
         self.titleText = titleText
         self.descriptionText = descriptionText
+        self.buttonText = buttonText
         super.init(nibName: nil, bundle: nil)
     }
     
