@@ -21,16 +21,16 @@ extension OnboardingCoordinator {
     func showOnboarding() {
         var pages = [UIViewController]()
         
-        let firstVC = UIViewController()
-        firstVC.view.backgroundColor = .black
+        let firstVC = OnboardingLayerController(image: UIImage(resource: .lifesaversHand), titleText: "Discover Top Doctors", descriptionText: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus lacinia libero ut metus convallis tempor. Vestibulum consequat, tortor mattis consequat")
+        firstVC.view.backgroundColor = .white
         pages.append(firstVC)
         
-        let secondVc = UIViewController()
-        secondVc.view.backgroundColor = .gray
+        let secondVc = OnboardingLayerController(image: UIImage(resource: .lifesaversCaretaking), titleText: "Ask a Doctor Online", descriptionText: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus lacinia libero ut metus convallis tempor. Vestibulum consequat, tortor mattis consequat")
+        secondVc.view.backgroundColor = .white
         pages.append(secondVc)
         
-        let thirdVc = UIViewController()
-        thirdVc.view.backgroundColor = .brown
+        let thirdVc = OnboardingLayerController(image: UIImage(resource: .lifesaversNewPatient), titleText: "Get Expert Advice", descriptionText: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus lacinia libero ut metus convallis tempor. Vestibulum consequat, tortor mattis consequat")
+        thirdVc.view.backgroundColor = .white
         pages.append(thirdVc)
         
         let presenter = OnboardingViewPresenter(coordinator: self)

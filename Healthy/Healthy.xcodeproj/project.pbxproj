@@ -45,6 +45,7 @@
 		4D65E5682C4FA1CC00FA85A1 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D65E5672C4FA1CC00FA85A1 /* TabBarController.swift */; };
 		4D65E5732C4FEF3700FA85A1 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D65E5722C4FEF3700FA85A1 /* OnboardingViewController.swift */; };
 		4D65E5752C4FEF4B00FA85A1 /* OnboardingViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D65E5742C4FEF4B00FA85A1 /* OnboardingViewPresenter.swift */; };
+		4D65E5772C50DEF300FA85A1 /* OnboardingLayerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D65E5762C50DEF300FA85A1 /* OnboardingLayerController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -88,6 +89,7 @@
 		4D65E5672C4FA1CC00FA85A1 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		4D65E5722C4FEF3700FA85A1 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		4D65E5742C4FEF4B00FA85A1 /* OnboardingViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewPresenter.swift; sourceTree = "<group>"; };
+		4D65E5762C50DEF300FA85A1 /* OnboardingLayerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingLayerController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -231,6 +233,7 @@
 			children = (
 				4D65E5722C4FEF3700FA85A1 /* OnboardingViewController.swift */,
 				4D65E5742C4FEF4B00FA85A1 /* OnboardingViewPresenter.swift */,
+				4D65E5762C50DEF300FA85A1 /* OnboardingLayerController.swift */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -341,6 +344,7 @@
 				4D65E5532C4EBC6F00FA85A1 /* AccentColors.swift in Sources */,
 				4D65E5752C4FEF4B00FA85A1 /* OnboardingViewPresenter.swift in Sources */,
 				4D65E5582C4F8B2700FA85A1 /* Coordinator.swift in Sources */,
+				4D65E5772C50DEF300FA85A1 /* OnboardingLayerController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

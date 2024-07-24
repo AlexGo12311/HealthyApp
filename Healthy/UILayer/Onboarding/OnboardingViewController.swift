@@ -39,6 +39,7 @@ private extension OnboardingViewController {
     func setupPageController() {
         pageViewController.delegate = self
         pageViewController.dataSource = self
+        pageViewController.view.backgroundColor = AccentColors.bgColor
         pageViewController.setViewControllers([pages.first!], direction: .forward, animated: true)
         
         addChild(pageViewController)
@@ -50,11 +51,13 @@ private extension OnboardingViewController {
     func setupPageControl() {
         pageControl.numberOfPages = pages.count
         pageControl.currentPage = 0
+        pageControl.currentPageIndicatorTintColor = AccentColors.mainBlue
+        pageControl.pageIndicatorTintColor = AccentColors.unselectedIcon
         view.addSubview(pageControl)
         pageControl.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             pageControl.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            pageControl.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -30)
+            pageControl.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -322)
         ])
     }
 }
