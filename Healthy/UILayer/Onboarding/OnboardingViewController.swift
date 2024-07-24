@@ -10,7 +10,7 @@ import UIKit
 class OnboardingViewController: UIViewController {
 
     // MARK: - Views
-    let pageViewController = UIPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal)
+    let pageViewController = UIPageViewController(transitionStyle: .pageCurl, navigationOrientation: .horizontal)
     let pageControl = UIPageControl()
     // MARK: - Properties
     var pages = [UIViewController]()
@@ -39,7 +39,7 @@ private extension OnboardingViewController {
     func setupPageController() {
         pageViewController.delegate = self
         pageViewController.dataSource = self
-        pageViewController.view.backgroundColor = AccentColors.bgColor
+        pageViewController.view.backgroundColor = .white
         pageViewController.setViewControllers([pages.first!], direction: .forward, animated: true)
         
         addChild(pageViewController)
@@ -53,6 +53,8 @@ private extension OnboardingViewController {
         pageControl.currentPage = 0
         pageControl.currentPageIndicatorTintColor = AccentColors.mainBlue
         pageControl.pageIndicatorTintColor = AccentColors.unselectedIcon
+        // turning off switch pages by tapping on circles
+        pageControl.isUserInteractionEnabled = false
         view.addSubview(pageControl)
         pageControl.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
@@ -70,12 +72,22 @@ extension OnboardingViewController: UIPageViewControllerDataSource, UIPageViewCo
     }
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
-        guard let currentPage = pages.firstIndex(of: viewController), currentPage < pages.count - 1 else { return nil}
+        guard let currentPage = pages.firstIndex(of: viewController), currentPage < pages.count - 1 else { return nil }
         return pages[currentPage + 1]
     }
     
+    func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
+        if !completed {
+            guard let nextViewController = previousViewControllers.first else { return }
+            if let index = pages.firstIndex(of: nextViewController) {
+                pageControl.currentPage = index
+            }
+        }
+    }
+    
     func pageViewController(_ pageViewController: UIPageViewController, willTransitionTo pendingViewControllers: [UIViewController]) {
-        if let index = pages.firstIndex(of: pendingViewControllers.first!) {
+        guard let nextViewController = pendingViewControllers.first else { return }
+        if let index = pages.firstIndex(of: nextViewController) {
             pageControl.currentPage = index
         }
     }

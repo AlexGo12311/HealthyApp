@@ -84,7 +84,7 @@ private extension OnboardingLayerController {
         ])
         descriptionLabel.textAlignment = .center
         descriptionLabel.numberOfLines = 0
-        descriptionLabel.font = .Montserrat.Medium.size(of: 16)
+        descriptionLabel.font = .Montserrat.Regular.size(of: 16)
         descriptionLabel.textColor = AccentColors.mainBlue
     }
 }
