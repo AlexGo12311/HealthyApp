@@ -12,6 +12,7 @@ protocol OnboardingOutput: AnyObject {
 }
 
 class OnboardingViewPresenter: OnboardingOutput {
+    private let userStorage = UserStorage.shared
     weak var coordinator: OnboardingCoordinator!
     
     init(coordinator: OnboardingCoordinator!) {
@@ -19,6 +20,8 @@ class OnboardingViewPresenter: OnboardingOutput {
     }
     
     func onboardingFinish() {
+        userStorage.isOnboarding = true
+        print("Now onboarding 'll never launch")
         coordinator.finish()
     }
 }

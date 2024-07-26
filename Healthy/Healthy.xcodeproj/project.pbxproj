@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4D5875A62C53937E005E4BD9 /* UserStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D5875A52C53937E005E4BD9 /* UserStorage.swift */; };
 		4D65E4B82C4EA71E00FA85A1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D65E4B72C4EA71E00FA85A1 /* AppDelegate.swift */; };
 		4D65E4BA2C4EA71E00FA85A1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D65E4B92C4EA71E00FA85A1 /* SceneDelegate.swift */; };
 		4D65E4BC2C4EA71E00FA85A1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D65E4BB2C4EA71E00FA85A1 /* ViewController.swift */; };
@@ -49,6 +50,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4D5875A52C53937E005E4BD9 /* UserStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStorage.swift; sourceTree = "<group>"; };
 		4D65E4B42C4EA71E00FA85A1 /* Healthy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Healthy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D65E4B72C4EA71E00FA85A1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4D65E4B92C4EA71E00FA85A1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -103,9 +105,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4D5875A32C53935B005E4BD9 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				4D5875A42C539369005E4BD9 /* LayerServices */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		4D5875A42C539369005E4BD9 /* LayerServices */ = {
+			isa = PBXGroup;
+			children = (
+				4D5875A52C53937E005E4BD9 /* UserStorage.swift */,
+			);
+			path = LayerServices;
+			sourceTree = "<group>";
+		};
 		4D65E4AB2C4EA71E00FA85A1 = {
 			isa = PBXGroup;
 			children = (
+				4D5875A32C53935B005E4BD9 /* Services */,
 				4D65E5702C4FEF1300FA85A1 /* UILayer */,
 				4D65E5542C4F8AED00FA85A1 /* AppNavigationLayer */,
 				4D65E4CB2C4EAF6A00FA85A1 /* Resources */,
@@ -342,6 +361,7 @@
 				4D65E5602C4FA0BE00FA85A1 /* HomeCoordinator.swift in Sources */,
 				4D65E5682C4FA1CC00FA85A1 /* TabBarController.swift in Sources */,
 				4D65E5532C4EBC6F00FA85A1 /* AccentColors.swift in Sources */,
+				4D5875A62C53937E005E4BD9 /* UserStorage.swift in Sources */,
 				4D65E5752C4FEF4B00FA85A1 /* OnboardingViewPresenter.swift in Sources */,
 				4D65E5582C4F8B2700FA85A1 /* Coordinator.swift in Sources */,
 				4D65E5772C50DEF300FA85A1 /* OnboardingLayerController.swift in Sources */,

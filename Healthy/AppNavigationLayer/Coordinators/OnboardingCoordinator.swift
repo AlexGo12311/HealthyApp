@@ -8,12 +8,15 @@
 import UIKit
 
 class OnboardingCoordinator: Coordinator {
+    private let userStorage = UserStorage.shared
+    
     override func start() {
         showOnboarding()
     }
     
     override func finish() {
-        print("Application was stopped")
+        finishDelegate?.coordinatorDidFinish(childCoordinator: self)
+        print("onboarding was stopped")
     }
 }
 
