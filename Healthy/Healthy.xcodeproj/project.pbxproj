@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4D13F2002C53BC2C00569543 /* OnboardingFlowFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D13F1FF2C53BC2C00569543 /* OnboardingFlowFactory.swift */; };
+		4D13F2022C53BD0100569543 /* MainFlowFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D13F2012C53BD0100569543 /* MainFlowFactory.swift */; };
 		4D5875A62C53937E005E4BD9 /* UserStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D5875A52C53937E005E4BD9 /* UserStorage.swift */; };
 		4D65E4B82C4EA71E00FA85A1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D65E4B72C4EA71E00FA85A1 /* AppDelegate.swift */; };
 		4D65E4BA2C4EA71E00FA85A1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D65E4B92C4EA71E00FA85A1 /* SceneDelegate.swift */; };
@@ -50,6 +52,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4D13F1FF2C53BC2C00569543 /* OnboardingFlowFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingFlowFactory.swift; sourceTree = "<group>"; };
+		4D13F2012C53BD0100569543 /* MainFlowFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainFlowFactory.swift; sourceTree = "<group>"; };
 		4D5875A52C53937E005E4BD9 /* UserStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStorage.swift; sourceTree = "<group>"; };
 		4D65E4B42C4EA71E00FA85A1 /* Healthy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Healthy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D65E4B72C4EA71E00FA85A1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -105,6 +109,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4D13F1FE2C53BC1400569543 /* SceneFactory */ = {
+			isa = PBXGroup;
+			children = (
+				4D13F1FF2C53BC2C00569543 /* OnboardingFlowFactory.swift */,
+				4D13F2012C53BD0100569543 /* MainFlowFactory.swift */,
+			);
+			path = SceneFactory;
+			sourceTree = "<group>";
+		};
 		4D5875A32C53935B005E4BD9 /* Services */ = {
 			isa = PBXGroup;
 			children = (
@@ -124,6 +137,7 @@
 		4D65E4AB2C4EA71E00FA85A1 = {
 			isa = PBXGroup;
 			children = (
+				4D13F1FE2C53BC1400569543 /* SceneFactory */,
 				4D5875A32C53935B005E4BD9 /* Services */,
 				4D65E5702C4FEF1300FA85A1 /* UILayer */,
 				4D65E5542C4F8AED00FA85A1 /* AppNavigationLayer */,
@@ -352,10 +366,12 @@
 				4D65E5642C4FA12400FA85A1 /* AppointmentCoordinator.swift in Sources */,
 				4D65E5622C4FA0E000FA85A1 /* SearchCoordinator.swift in Sources */,
 				4D65E5512C4EBB6500FA85A1 /* UIColor+Ext.swift in Sources */,
+				4D13F2022C53BD0100569543 /* MainFlowFactory.swift in Sources */,
 				4D65E4B82C4EA71E00FA85A1 /* AppDelegate.swift in Sources */,
 				4D65E55E2C4F9A0700FA85A1 /* OnboardingCoordinator.swift in Sources */,
 				4D65E5732C4FEF3700FA85A1 /* OnboardingViewController.swift in Sources */,
 				4D65E55A2C4F94BA00FA85A1 /* AppCoordinator.swift in Sources */,
+				4D13F2002C53BC2C00569543 /* OnboardingFlowFactory.swift in Sources */,
 				4D65E5662C4FA15F00FA85A1 /* ProfileCoordinator.swift in Sources */,
 				4D65E4BA2C4EA71E00FA85A1 /* SceneDelegate.swift in Sources */,
 				4D65E5602C4FA0BE00FA85A1 /* HomeCoordinator.swift in Sources */,
