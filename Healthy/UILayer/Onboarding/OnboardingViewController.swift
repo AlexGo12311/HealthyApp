@@ -15,7 +15,7 @@ class OnboardingViewController: UIViewController {
     var contextButton = UIButton()
     // MARK: - Properties
     var pages = [OnboardingLayerController]()
-    weak var viewOutput: OnboardingOutput!
+    var viewOutput: OnboardingOutput!
     
     init(pages: [OnboardingLayerController] = [OnboardingLayerController](), viewOutput: OnboardingOutput!) {
         super.init(nibName: nil, bundle: nil)
@@ -99,7 +99,7 @@ extension OnboardingViewController {
             pageViewController.setViewControllers([pages[2]], direction: .forward, animated: true)
             contextButton.setTitle(pages[2].buttonText, for: .normal)
         case 2:
-            
+            viewOutput.onboardingFinish()
             print("great!")
         default:
             break
