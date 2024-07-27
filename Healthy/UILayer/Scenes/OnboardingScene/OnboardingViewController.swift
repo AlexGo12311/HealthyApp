@@ -12,7 +12,7 @@ class OnboardingViewController: UIViewController {
     // MARK: - Views
     let pageViewController = UIPageViewController(transitionStyle: .pageCurl, navigationOrientation: .horizontal)
     let pageControl = UIPageControl()
-    var contextButton = UIButton()
+    var contextButton = MainButton(appearence: .fill, title: "Next")
     // MARK: - Properties
     var pages = [OnboardingLayerController]()
     var viewOutput: OnboardingOutput!
@@ -68,36 +68,31 @@ private extension OnboardingViewController {
     
     func setupContextButton() {
         view.addSubview(contextButton)
-        contextButton.setTitle("Next", for: .normal)
-        contextButton.backgroundColor = AccentColors.mainBlue
-        contextButton.tintColor = AccentColors.mainBlue
-        contextButton.titleLabel?.font = .Montserrat.Regular.size(of: 16)
-        contextButton.layer.cornerRadius = 16
         
         contextButton.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
             contextButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -45),
-            contextButton.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 32),
-            contextButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -32),
-            contextButton.heightAnchor.constraint(equalToConstant: 35)
+            contextButton.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 40),
+            contextButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -40),
+            contextButton.heightAnchor.constraint(equalToConstant: 48)
         ])
         
-        contextButton.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
+        contextButton.action = buttonPressed
     }
 }
 
 extension OnboardingViewController {
-    @objc func buttonPressed() {
+    func buttonPressed() {
         switch pageControl.currentPage {
         case 0:
             pageControl.currentPage = 1
             pageViewController.setViewControllers([pages[1]], direction: .forward, animated: true)
-            contextButton.setTitle(pages[1].buttonText, for: .normal)
+            contextButton.setTitle(pages[1].buttonText)
         case 1:
             pageControl.currentPage = 2
             pageViewController.setViewControllers([pages[2]], direction: .forward, animated: true)
-            contextButton.setTitle(pages[2].buttonText, for: .normal)
+            contextButton.setTitle(pages[2].buttonText)
         case 2:
             viewOutput.onboardingFinish()
             print("great!")
@@ -132,7 +127,7 @@ extension OnboardingViewController {
             guard let nextViewController = pendingViewControllers.first else { return }
             if let index = pages.firstIndex(of: nextViewController as! OnboardingLayerController) {
                 pageControl.currentPage = index
-                contextButton.setTitle(pages[index].buttonText, for: .normal)
+                contextButton.setTitle(pages[index].buttonText)
             }
         }
     }
