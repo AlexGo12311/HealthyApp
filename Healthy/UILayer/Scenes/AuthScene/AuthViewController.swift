@@ -9,21 +9,30 @@ import UIKit
 
 class AuthViewController: UIViewController {
 
+    private var textField = MainTextField()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemGray
-        
+        view.backgroundColor = .white
+        setupLayout()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    private func setupLayout() {
+        setupTextField()
     }
-    */
 
+}
+
+private extension AuthViewController {
+    func setupTextField() {
+        view.addSubview(textField)
+        textField.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            textField.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            textField.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            textField.heightAnchor.constraint(equalToConstant: 46),
+            textField.widthAnchor.constraint(equalToConstant: 327)
+        ])
+    }
 }
