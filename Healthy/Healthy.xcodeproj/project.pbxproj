@@ -51,6 +51,7 @@
 		4D65E5772C50DEF300FA85A1 /* OnboardingLayerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D65E5762C50DEF300FA85A1 /* OnboardingLayerController.swift */; };
 		4D9BF2BF2C53EF89009ACAFA /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9BF2BE2C53EF89009ACAFA /* AuthViewController.swift */; };
 		4D9BF2C52C550874009ACAFA /* MainButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9BF2C42C550874009ACAFA /* MainButton.swift */; };
+		4D9BF2C92C5520D5009ACAFA /* MainTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9BF2C82C5520D5009ACAFA /* MainTextField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -100,6 +101,7 @@
 		4D65E5762C50DEF300FA85A1 /* OnboardingLayerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingLayerController.swift; sourceTree = "<group>"; };
 		4D9BF2BE2C53EF89009ACAFA /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
 		4D9BF2C42C550874009ACAFA /* MainButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainButton.swift; sourceTree = "<group>"; };
+		4D9BF2C82C5520D5009ACAFA /* MainTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -297,6 +299,7 @@
 			isa = PBXGroup;
 			children = (
 				4D9BF2C42C550874009ACAFA /* MainButton.swift */,
+				4D9BF2C82C5520D5009ACAFA /* MainTextField.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -395,6 +398,7 @@
 				4D65E4BC2C4EA71E00FA85A1 /* ViewController.swift in Sources */,
 				4D65E5642C4FA12400FA85A1 /* AppointmentCoordinator.swift in Sources */,
 				4D65E5622C4FA0E000FA85A1 /* SearchCoordinator.swift in Sources */,
+				4D9BF2C92C5520D5009ACAFA /* MainTextField.swift in Sources */,
 				4D65E5512C4EBB6500FA85A1 /* UIColor+Ext.swift in Sources */,
 				4D13F2022C53BD0100569543 /* MainFlowFactory.swift in Sources */,
 				4D65E4B82C4EA71E00FA85A1 /* AppDelegate.swift in Sources */,

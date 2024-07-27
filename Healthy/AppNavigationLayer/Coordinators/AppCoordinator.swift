@@ -13,14 +13,13 @@ class AppCoordinator: Coordinator {
     private let factory = MainFlowFactory.self
     
     override func start() {
-//        let AuthVc = AuthViewController()
-//        navigationController?.pushViewController(AuthVc, animated: true)
+        let AuthVc = AuthViewController()
+        navigationController?.pushViewController(AuthVc, animated: true)
 //        if userStrage.isOnboarding {
 //            showMainFlow()
 //        } else {
 //            showOnboardingFlow()
 //        }
-        showOnboardingFlow()
     }
     
     override func finish() {
