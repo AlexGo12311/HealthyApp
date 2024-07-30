@@ -52,6 +52,8 @@
 		4D9BF2BF2C53EF89009ACAFA /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9BF2BE2C53EF89009ACAFA /* AuthViewController.swift */; };
 		4D9BF2C52C550874009ACAFA /* MainButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9BF2C42C550874009ACAFA /* MainButton.swift */; };
 		4D9BF2C92C5520D5009ACAFA /* MainTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9BF2C82C5520D5009ACAFA /* MainTextField.swift */; };
+		4DB8D1302C57EB3B00A73EDF /* AuthViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB8D12F2C57EB3B00A73EDF /* AuthViewPresenter.swift */; };
+		4DB8D1322C57ED2E00A73EDF /* AuthBottomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB8D1312C57ED2E00A73EDF /* AuthBottomView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -102,6 +104,8 @@
 		4D9BF2BE2C53EF89009ACAFA /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
 		4D9BF2C42C550874009ACAFA /* MainButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainButton.swift; sourceTree = "<group>"; };
 		4D9BF2C82C5520D5009ACAFA /* MainTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTextField.swift; sourceTree = "<group>"; };
+		4DB8D12F2C57EB3B00A73EDF /* AuthViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewPresenter.swift; sourceTree = "<group>"; };
+		4DB8D1312C57ED2E00A73EDF /* AuthBottomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthBottomView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -282,6 +286,7 @@
 			isa = PBXGroup;
 			children = (
 				4D9BF2BE2C53EF89009ACAFA /* AuthViewController.swift */,
+				4DB8D12F2C57EB3B00A73EDF /* AuthViewPresenter.swift */,
 			);
 			path = AuthScene;
 			sourceTree = "<group>";
@@ -300,6 +305,7 @@
 			children = (
 				4D9BF2C42C550874009ACAFA /* MainButton.swift */,
 				4D9BF2C82C5520D5009ACAFA /* MainTextField.swift */,
+				4DB8D1312C57ED2E00A73EDF /* AuthBottomView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -394,6 +400,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4DB8D1322C57ED2E00A73EDF /* AuthBottomView.swift in Sources */,
 				4D65E54F2C4EB38E00FA85A1 /* UIFont+Ext.swift in Sources */,
 				4D65E4BC2C4EA71E00FA85A1 /* ViewController.swift in Sources */,
 				4D65E5642C4FA12400FA85A1 /* AppointmentCoordinator.swift in Sources */,
@@ -401,6 +408,7 @@
 				4D9BF2C92C5520D5009ACAFA /* MainTextField.swift in Sources */,
 				4D65E5512C4EBB6500FA85A1 /* UIColor+Ext.swift in Sources */,
 				4D13F2022C53BD0100569543 /* MainFlowFactory.swift in Sources */,
+				4DB8D1302C57EB3B00A73EDF /* AuthViewPresenter.swift in Sources */,
 				4D65E4B82C4EA71E00FA85A1 /* AppDelegate.swift in Sources */,
 				4D65E55E2C4F9A0700FA85A1 /* OnboardingCoordinator.swift in Sources */,
 				4D65E5732C4FEF3700FA85A1 /* OnboardingViewController.swift in Sources */,
