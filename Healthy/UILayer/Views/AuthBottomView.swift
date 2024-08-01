@@ -26,7 +26,7 @@ class AuthBottomView: UIView {
     private func setupLayout() {
         setupLabel()
         setupButton()
-        self.backgroundColor = .white
+        self.backgroundColor = .clear
     }
     
 }
@@ -55,8 +55,8 @@ extension AuthBottomView {
         button.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            button.trailingAnchor.constraint(equalTo: label.trailingAnchor, constant: 8),
-            button.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            button.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+            button.leadingAnchor.constraint(equalTo: label.leadingAnchor, constant: 170),
             button.centerYAnchor.constraint(equalTo: self.centerYAnchor)
         ])
         
