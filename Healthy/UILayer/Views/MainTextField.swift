@@ -23,7 +23,7 @@ class MainTextField: UITextField {
         self.layer.borderWidth = 1
         self.backgroundColor = .white
         self.placeholder = "Placeholder"
-        self.layer.borderColor = AccentColors.convenienceTextColor?.cgColor
+        self.layer.borderColor = UIColor.lightGray.cgColor
         self.font = UIFont.Montserrat.Regular.size(of: 16)
         
         let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: 20, height: self.frame.height))
