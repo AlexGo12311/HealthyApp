@@ -78,7 +78,9 @@ private extension OnboardingViewController {
             contextButton.heightAnchor.constraint(equalToConstant: 48)
         ])
         
-        contextButton.action = buttonPressed
+        contextButton.action = { [ weak self ] in
+            self?.buttonPressed()
+        }
     }
 }
 
