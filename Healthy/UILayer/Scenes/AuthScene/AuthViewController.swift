@@ -29,6 +29,7 @@ class AuthViewController: UIViewController {
     // MARK: - Views
     private lazy var loginField = MainTextField()
     private lazy var passwordField = MainTextField()
+    private lazy var regNameField = MainTextField()
     private lazy var bottomView = AuthBottomView()
     private lazy var label = UILabel()
     private lazy var label1 = UILabel()
@@ -36,6 +37,7 @@ class AuthViewController: UIViewController {
     private lazy var signUpButton = MainButton(appearence: .fill, title: "Sign Up")
     private lazy var loginButton = MainButton(appearence: .plain, title: "Login")
     private lazy var forgotButton = UIButton()
+    private lazy var stackField = UIStackView()
     
     
     // MARK: - LifeCycle
@@ -64,53 +66,111 @@ class AuthViewController: UIViewController {
             setupLogoImage()
             setupSignUpButton()
             setupLoginButton()
+            
         case .login:
             setupLabel()
             setupLabel1()
             setupLogoImage()
+            //Stack
+            setupStack()
             setupLoginField()
             setupPasswordField()
+            
             setupLoginButton()
             setupForgotButton()
             setupBottomView()
+            
         case .signUp:
             setupLabel()
             setupLabel1()
             setupLogoImage()
+            // Stack
+            setupStack()
+            setupRegField()
             setupLoginField()
-            setupBottomView()
+            setupPasswordField()
+            
+            setupSignUpButton()
+            setupForgotButton()
         }
     }
  
 }
 
 private extension AuthViewController {
+    
+    // MARK: - Setup fields for text
+    func setupStack() {
+        view.addSubview(stackField)
+        stackField.axis = .vertical
+        stackField.spacing = 16
+        
+        switch self.state {
+            
+        case .initial:
+            break
+            
+        case .login:
+            stackField.addArrangedSubview(loginField)
+            stackField.addArrangedSubview(passwordField)
+            
+        case .signUp:
+            stackField.addArrangedSubview(regNameField)
+            stackField.addArrangedSubview(loginField)
+            stackField.addArrangedSubview(passwordField)
+        }
+        
+        stackField.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            stackField.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            stackField.topAnchor.constraint(equalTo: logoImage.bottomAnchor, constant: 24)
+        ])
+    }
+    
+    func setupRegField() {
+        regNameField.placeholder = "Your name"
+        regNameField.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+//            regNameField.topAnchor.constraint(equalTo: logoImage.bottomAnchor, constant: 24),
+            regNameField.widthAnchor.constraint(equalToConstant: 327),
+            regNameField.heightAnchor.constraint(equalToConstant: 46)
+        ])
+    }
+    
+    func setupLoginField() {
+        loginField.translatesAutoresizingMaskIntoConstraints = false
+        loginField.placeholder = "Email or number"
+        
+        if self.state == .signUp {
+            NSLayoutConstraint.activate([
+//                loginField.topAnchor.constraint(equalTo: regNameField.bottomAnchor, constant: 16),
+                loginField.heightAnchor.constraint(equalToConstant: 46),
+                loginField.widthAnchor.constraint(equalToConstant: 327)
+            ])
+            
+        } else {
+            
+            NSLayoutConstraint.activate([
+//                loginField.topAnchor.constraint(equalTo: logoImage.bottomAnchor, constant: 24),
+                loginField.heightAnchor.constraint(equalToConstant: 46),
+                loginField.widthAnchor.constraint(equalToConstant: 327)
+            ])
+        }
+    }
+    
     func setupPasswordField() {
-        view.addSubview(passwordField)
         passwordField.translatesAutoresizingMaskIntoConstraints = false
         passwordField.placeholder = "Password"
         
         NSLayoutConstraint.activate([
-            passwordField.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             passwordField.topAnchor.constraint(equalTo: loginField.bottomAnchor, constant: 16),
             passwordField.heightAnchor.constraint(equalToConstant: 46),
             passwordField.widthAnchor.constraint(equalToConstant: 327)
         ])
     }
     
-    func setupLoginField() {
-        view.addSubview(loginField)
-        loginField.translatesAutoresizingMaskIntoConstraints = false
-        loginField.placeholder = "Email or number"
-        
-        NSLayoutConstraint.activate([
-            loginField.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            loginField.topAnchor.constraint(equalTo: logoImage.bottomAnchor, constant: 24),
-            loginField.heightAnchor.constraint(equalToConstant: 46),
-            loginField.widthAnchor.constraint(equalToConstant: 327)
-        ])
-    }
-    
+    // MARK: - Setup layout
     func setupLabel() {
         view.addSubview(label)
         label.font = .Montserrat.Bold.size(of: 20)
@@ -169,16 +229,26 @@ private extension AuthViewController {
             logoImage.topAnchor.constraint(equalTo: label1.bottomAnchor, constant: 30)
         ])
     }
-    
+    //MARK: - Setup buttons
     func setupSignUpButton() {
         view.addSubview(signUpButton)
         signUpButton.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            signUpButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            signUpButton.topAnchor.constraint(equalTo: logoImage.bottomAnchor, constant: 46),
-            signUpButton.widthAnchor.constraint(equalToConstant: 327),
-            signUpButton.heightAnchor.constraint(equalToConstant: 42)
-        ])
+        
+        if self.state == .signUp {
+            NSLayoutConstraint.activate([
+                signUpButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+                signUpButton.topAnchor.constraint(equalTo: stackField.bottomAnchor, constant: 53),
+                signUpButton.widthAnchor.constraint(equalToConstant: 327),
+                signUpButton.heightAnchor.constraint(equalToConstant: 42)
+            ])
+        } else {
+            NSLayoutConstraint.activate([
+                signUpButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+                signUpButton.topAnchor.constraint(equalTo: logoImage.bottomAnchor, constant: 46),
+                signUpButton.widthAnchor.constraint(equalToConstant: 327),
+                signUpButton.heightAnchor.constraint(equalToConstant: 42)
+            ])
+        }
     }
     
     func setupLoginButton() {
@@ -215,11 +285,11 @@ private extension AuthViewController {
         forgotButton.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            forgotButton.topAnchor.constraint(equalTo: passwordField.bottomAnchor, constant: 8),
+            forgotButton.topAnchor.constraint(equalTo: stackField.bottomAnchor, constant: 8),
             forgotButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -34)
         ])
     }
-    
+    // MARK: - Setup bottom view
     func setupBottomView() {
         view.addSubview(bottomView)
         bottomView.translatesAutoresizingMaskIntoConstraints = false
@@ -229,11 +299,12 @@ private extension AuthViewController {
             bottomView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             bottomView.heightAnchor.constraint(equalToConstant: 50)
         ])
-        bottomView.action = buttonPressed
+        bottomView.action = onBottomPressed
     }
     
 }
 
+// MARK: - Actions
 extension AuthViewController: AuthInput {
     func onSignUpTaped() {
         
