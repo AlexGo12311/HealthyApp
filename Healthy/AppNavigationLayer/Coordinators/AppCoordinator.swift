@@ -10,12 +10,12 @@ import UIKit
 class AppCoordinator: Coordinator {
     
     private let userStrage = UserStorage.shared
-    private let factory = MainFlowFactory.self
+    private let MainFactory = MainFlowFactory.self
+    private let authFactory = AuthFlowFactory.self
+    
     
     override func start() {
-        let authPresetor = AuthPresenter(coordinator: self)
-        let AuthVc = AuthViewController(output: authPresetor, state: .signUp)
-        navigationController?.pushViewController(AuthVc, animated: true)
+        showAuthInitialScene()
 //        if userStrage.isOnboarding {
 //            showMainFlow()
 //        } else {
@@ -39,8 +39,29 @@ private extension AppCoordinator {
     
     func showMainFlow() {
         guard let navigationController = navigationController else { return }
-        let tabBarController = factory.make(superCoordinator: self, finishDelegate: self)
+        let tabBarController = MainFactory.make(superCoordinator: self, finishDelegate: self)
         navigationController.pushViewController(tabBarController, animated: true)
+    }
+    
+    func showAuthInitialScene() {
+        guard let navigationController = navigationController else { return }
+        let aVC = authFactory.makeInitialScene(coordinator: self)
+        navigationController.pushViewController(aVC, animated: true)
+    }
+}
+
+// MARK: - AuthInitialScene methods
+extension AppCoordinator {
+    func showAuthLoginScene() {
+        guard let navigationController = navigationController else { return }
+        let aVC = authFactory.makeLoginScene(coordinator: self)
+        navigationController.pushViewController(aVC, animated: true)
+    }
+    
+    func showAuthSignUpScene() {
+        guard let navigationController = navigationController else { return }
+        let aVC = authFactory.makeSignUpScene(coordinator: self)
+        navigationController.pushViewController(aVC, animated: true)
     }
 }
 

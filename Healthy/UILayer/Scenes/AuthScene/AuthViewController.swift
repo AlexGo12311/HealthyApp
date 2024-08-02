@@ -25,7 +25,7 @@ class AuthViewController: UIViewController {
     
     // MARK: - Properties
     private var state: LoginViewState = .initial
-    weak var viewOutput: AuthOutput!
+    var viewOutput: AuthOutput!
     // MARK: - Views
     private lazy var loginField = MainTextField()
     private lazy var passwordField = MainTextField()
@@ -76,9 +76,10 @@ class AuthViewController: UIViewController {
             setupLoginField()
             setupPasswordField()
             
+            setupBottomView()
             setupLoginButton()
             setupForgotButton()
-            setupBottomView()
+            
             
         case .signUp:
             setupLabel()
@@ -187,7 +188,7 @@ private extension AuthViewController {
         
         NSLayoutConstraint.activate([
             label.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            label.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor)
+            label.topAnchor.constraint(equalTo: view.topAnchor, constant: 72)
         ])
         
     }
@@ -232,12 +233,15 @@ private extension AuthViewController {
     //MARK: - Setup buttons
     func setupSignUpButton() {
         view.addSubview(signUpButton)
+        signUpButton.action = { [ weak self ] in
+            self?.onSignUpTaped()
+        }
         signUpButton.translatesAutoresizingMaskIntoConstraints = false
         
         if self.state == .signUp {
             NSLayoutConstraint.activate([
                 signUpButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-                signUpButton.topAnchor.constraint(equalTo: stackField.bottomAnchor, constant: 53),
+                signUpButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
                 signUpButton.widthAnchor.constraint(equalToConstant: 327),
                 signUpButton.heightAnchor.constraint(equalToConstant: 42)
             ])
@@ -253,6 +257,9 @@ private extension AuthViewController {
     
     func setupLoginButton() {
         view.addSubview(loginButton)
+        loginButton.action = { [ weak self ] in
+            self?.onLoginTapped()
+        }
         if self.state == .login {
             loginButton.setAppearence(style: .fill)
         }
@@ -268,7 +275,7 @@ private extension AuthViewController {
         case .login:
             NSLayoutConstraint.activate([
                 loginButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-                loginButton.topAnchor.constraint(equalTo: passwordField.bottomAnchor, constant: 53),
+                loginButton.bottomAnchor.constraint(equalTo: bottomView.topAnchor),
                 loginButton.widthAnchor.constraint(equalToConstant: 327),
                 loginButton.heightAnchor.constraint(equalToConstant: 42)
             ])
@@ -299,19 +306,35 @@ private extension AuthViewController {
             bottomView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             bottomView.heightAnchor.constraint(equalToConstant: 50)
         ])
-        bottomView.action = onBottomPressed
+        bottomView.action = { [ weak self ] in
+            self?.onBottomPressed()
+        }
     }
     
 }
 
-// MARK: - Actions
+// MARK: - AuthView input delegate
 extension AuthViewController: AuthInput {
     func onSignUpTaped() {
-        
+        switch state {
+        case .initial:
+            viewOutput.goToSignUp()
+        case .login:
+            return
+        case .signUp:
+            return
+        }
     }
     
     func onLoginTapped() {
-        
+        switch state {
+        case .initial:
+            viewOutput.goToSignIn()
+        case .login:
+            return
+        case .signUp:
+            break
+        }
     }
     
     func onForgotTapped() {
@@ -319,7 +342,7 @@ extension AuthViewController: AuthInput {
     }
     
     func onBottomPressed() {
-        
+        viewOutput.goToSignUp()
     }
     
     func onBackPressed() {

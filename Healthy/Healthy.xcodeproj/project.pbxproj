@@ -54,6 +54,7 @@
 		4D9BF2C92C5520D5009ACAFA /* MainTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9BF2C82C5520D5009ACAFA /* MainTextField.swift */; };
 		4DB8D1302C57EB3B00A73EDF /* AuthViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB8D12F2C57EB3B00A73EDF /* AuthViewPresenter.swift */; };
 		4DB8D1322C57ED2E00A73EDF /* AuthBottomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB8D1312C57ED2E00A73EDF /* AuthBottomView.swift */; };
+		4DE793C92C5CF6C500FA40BA /* AuthFlowFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE793C82C5CF6C500FA40BA /* AuthFlowFactory.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -106,6 +107,7 @@
 		4D9BF2C82C5520D5009ACAFA /* MainTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTextField.swift; sourceTree = "<group>"; };
 		4DB8D12F2C57EB3B00A73EDF /* AuthViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewPresenter.swift; sourceTree = "<group>"; };
 		4DB8D1312C57ED2E00A73EDF /* AuthBottomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthBottomView.swift; sourceTree = "<group>"; };
+		4DE793C82C5CF6C500FA40BA /* AuthFlowFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthFlowFactory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +126,7 @@
 			children = (
 				4D13F1FF2C53BC2C00569543 /* OnboardingFlowFactory.swift */,
 				4D13F2012C53BD0100569543 /* MainFlowFactory.swift */,
+				4DE793C82C5CF6C500FA40BA /* AuthFlowFactory.swift */,
 			);
 			path = SceneFactory;
 			sourceTree = "<group>";
@@ -406,6 +409,7 @@
 				4D65E5642C4FA12400FA85A1 /* AppointmentCoordinator.swift in Sources */,
 				4D65E5622C4FA0E000FA85A1 /* SearchCoordinator.swift in Sources */,
 				4D9BF2C92C5520D5009ACAFA /* MainTextField.swift in Sources */,
+				4DE793C92C5CF6C500FA40BA /* AuthFlowFactory.swift in Sources */,
 				4D65E5512C4EBB6500FA85A1 /* UIColor+Ext.swift in Sources */,
 				4D13F2022C53BD0100569543 /* MainFlowFactory.swift in Sources */,
 				4DB8D1302C57EB3B00A73EDF /* AuthViewPresenter.swift in Sources */,

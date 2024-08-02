@@ -28,6 +28,7 @@ class AuthPresenter {
 
 extension AuthPresenter: AuthOutput {
     func loginStart() {
+        
     }
     
     func registrationStart() {
@@ -35,11 +36,11 @@ extension AuthPresenter: AuthOutput {
     }
     
     func goToSignIn() {
-        
+        coordinator?.showAuthLoginScene()
     }
     
     func goToSignUp() {
-        
+        coordinator?.showAuthSignUpScene()
     }
     
     func goToForgot() {
