@@ -14,7 +14,7 @@ class AppCoordinator: Coordinator {
     
     override func start() {
         let authPresetor = AuthPresenter(coordinator: self)
-        let AuthVc = AuthViewController(output: authPresetor, state: .login)
+        let AuthVc = AuthViewController(output: authPresetor, state: .signUp)
         navigationController?.pushViewController(AuthVc, animated: true)
 //        if userStrage.isOnboarding {
 //            showMainFlow()
