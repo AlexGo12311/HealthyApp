@@ -63,6 +63,10 @@ extension AppCoordinator {
         let aVC = authFactory.makeSignUpScene(coordinator: self)
         navigationController.pushViewController(aVC, animated: true)
     }
+    
+    func showMainScene() {
+        showMainFlow()
+    }
 }
 
 extension AppCoordinator: CoordinatorFinishDelegate {

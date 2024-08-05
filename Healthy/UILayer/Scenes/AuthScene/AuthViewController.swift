@@ -13,11 +13,8 @@ enum LoginViewState {
 }
 
 protocol AuthInput: AnyObject {
-    func onSignUpTaped()
-    func onLoginTapped()
-    func onForgotTapped()
-    func onBottomPressed()
-    func onBackPressed()
+    func startLoader()
+    func stopLoader()
 }
 
 class AuthViewController: UIViewController {
@@ -40,6 +37,8 @@ class AuthViewController: UIViewController {
     private lazy var loginButton = MainButton(appearence: .plain, title: "Login")
     private lazy var forgotButton = UIButton()
     private lazy var stackField = UIStackView()
+    private lazy var loader = UIActivityIndicatorView(style: .large)
+    private lazy var loaderContainer = UIView()
     
     // MARK: - Constraits
     private var labelTopCT = NSLayoutConstraint()
@@ -89,7 +88,7 @@ class AuthViewController: UIViewController {
             setupBottomView()
             setupLoginButton()
             setupForgotButton()
-            
+            setupNavigationBar()
             
         case .signUp:
             setupLabel()
@@ -103,9 +102,40 @@ class AuthViewController: UIViewController {
             
             setupSignUpButton()
             setupForgotButton()
+            setupNavigationBar()
         }
+        setupLoaderView()
+    }
+    // MARK: - Navigation icons setup
+    func setupNavigationBar() {
+        let backImage = UIImage(resource: .back)
+        let backButtonItem = UIBarButtonItem(image: backImage,
+                                             style: .plain,
+                                             target: navigationController,
+                                             action: #selector(navigationController?.popViewController(animated:)))
+        navigationItem.leftBarButtonItem = backButtonItem
+        navigationItem.leftBarButtonItem?.tintColor = AccentColors.mainBlue
     }
  
+    func setupLoaderView() {
+        view.addSubview(loaderContainer)
+        loaderContainer.backgroundColor = AccentColors.convenienceTextColor?.withAlphaComponent(0.3)
+        loaderContainer.translatesAutoresizingMaskIntoConstraints = false
+        loaderContainer.isHidden = true
+        
+        NSLayoutConstraint.activate([
+            loaderContainer.widthAnchor.constraint(equalTo: view.widthAnchor),
+            loaderContainer.heightAnchor.constraint(equalTo: view.heightAnchor)
+        ])
+        
+        loaderContainer.addSubview(loader)
+        loader.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            loader.centerYAnchor.constraint(equalTo: loaderContainer.centerYAnchor),
+            loader.centerXAnchor.constraint(equalTo: loaderContainer.centerXAnchor)
+        ])
+    }
 }
 
 private extension AuthViewController {
@@ -324,9 +354,8 @@ private extension AuthViewController {
     }
     
 }
-
-// MARK: - AuthView input delegate
-extension AuthViewController: AuthInput {
+// MARK: - Private Methods
+private extension AuthViewController {
     func onSignUpTaped() {
         switch state {
         case .initial:
@@ -343,7 +372,8 @@ extension AuthViewController: AuthInput {
         case .initial:
             viewOutput.goToSignIn()
         case .login:
-            return
+            print(#function)
+            viewOutput.loginStart(login: loginField.text ?? "", password: passwordField.text ?? "")
         case .signUp:
             break
         }
@@ -359,6 +389,19 @@ extension AuthViewController: AuthInput {
     
     func onBackPressed() {
         
+    }
+}
+
+// MARK: - AuthView input delegate
+extension AuthViewController: AuthInput {
+    func startLoader() {
+        loaderContainer.isHidden = false
+        loader.startAnimating()
+    }
+    
+    func stopLoader() {
+        loaderContainer.isHidden = true
+        loader.stopAnimating()
     }
     
     

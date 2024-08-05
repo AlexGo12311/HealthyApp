@@ -8,7 +8,7 @@
 import UIKit
 
 protocol AuthOutput: AnyObject {
-    func loginStart()
+    func loginStart(login: String, password: String)
     func registrationStart()
     func goToSignIn()
     func goToSignUp()
@@ -26,9 +26,27 @@ class AuthPresenter {
     }
 }
 
+extension AuthPresenter {
+    func goToMainFlow() {
+        coordinator?.showMainScene()    }
+}
+
 extension AuthPresenter: AuthOutput {
-    func loginStart() {
-        
+    func loginStart(login: String, password: String) {
+        input?.startLoader()
+        if login.lowercased() == "test" && password == "123" {
+            DispatchQueue.global().asyncAfter(deadline: .now() + 2.0) {
+                DispatchQueue.main.async {
+                    self.goToMainFlow()
+                }
+                
+            }
+        } else {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                print("Password is wrong")
+                self.input?.stopLoader()
+            }
+        }
     }
     
     func registrationStart() {
