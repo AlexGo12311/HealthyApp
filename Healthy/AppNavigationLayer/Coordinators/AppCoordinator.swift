@@ -15,7 +15,7 @@ class AppCoordinator: Coordinator {
     
     
     override func start() {
-        showMainFlow()
+        showOnboardingFlow()
 //        if userStrage.isOnboarding {
 //            showMainFlow()
 //        } else {

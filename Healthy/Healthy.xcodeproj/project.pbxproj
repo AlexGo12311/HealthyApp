@@ -50,6 +50,9 @@
 		4D65E5752C4FEF4B00FA85A1 /* OnboardingViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D65E5742C4FEF4B00FA85A1 /* OnboardingViewPresenter.swift */; };
 		4D65E5772C50DEF300FA85A1 /* OnboardingLayerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D65E5762C50DEF300FA85A1 /* OnboardingLayerController.swift */; };
 		4D903F802C6118360006CE60 /* AuthCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D903F7F2C6118360006CE60 /* AuthCoordinator.swift */; };
+		4D903F822C612B550006CE60 /* HomeSceneFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D903F812C612B550006CE60 /* HomeSceneFactory.swift */; };
+		4D903F852C612BBD0006CE60 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D903F842C612BBD0006CE60 /* HomeViewController.swift */; };
+		4D903F872C612BEE0006CE60 /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D903F862C612BEE0006CE60 /* HomePresenter.swift */; };
 		4D9BF2BF2C53EF89009ACAFA /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9BF2BE2C53EF89009ACAFA /* AuthViewController.swift */; };
 		4D9BF2C52C550874009ACAFA /* MainButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9BF2C42C550874009ACAFA /* MainButton.swift */; };
 		4D9BF2C92C5520D5009ACAFA /* MainTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9BF2C82C5520D5009ACAFA /* MainTextField.swift */; };
@@ -104,6 +107,9 @@
 		4D65E5742C4FEF4B00FA85A1 /* OnboardingViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewPresenter.swift; sourceTree = "<group>"; };
 		4D65E5762C50DEF300FA85A1 /* OnboardingLayerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingLayerController.swift; sourceTree = "<group>"; };
 		4D903F7F2C6118360006CE60 /* AuthCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthCoordinator.swift; sourceTree = "<group>"; };
+		4D903F812C612B550006CE60 /* HomeSceneFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSceneFactory.swift; sourceTree = "<group>"; };
+		4D903F842C612BBD0006CE60 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		4D903F862C612BEE0006CE60 /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
 		4D9BF2BE2C53EF89009ACAFA /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
 		4D9BF2C42C550874009ACAFA /* MainButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainButton.swift; sourceTree = "<group>"; };
 		4D9BF2C82C5520D5009ACAFA /* MainTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTextField.swift; sourceTree = "<group>"; };
@@ -129,6 +135,7 @@
 				4D13F1FF2C53BC2C00569543 /* OnboardingFlowFactory.swift */,
 				4D13F2012C53BD0100569543 /* MainFlowFactory.swift */,
 				4DE793C82C5CF6C500FA40BA /* AuthFlowFactory.swift */,
+				4D903F812C612B550006CE60 /* HomeSceneFactory.swift */,
 			);
 			path = SceneFactory;
 			sourceTree = "<group>";
@@ -288,6 +295,15 @@
 			path = OnboardingScene;
 			sourceTree = "<group>";
 		};
+		4D903F832C612BA30006CE60 /* HomeScene */ = {
+			isa = PBXGroup;
+			children = (
+				4D903F842C612BBD0006CE60 /* HomeViewController.swift */,
+				4D903F862C612BEE0006CE60 /* HomePresenter.swift */,
+			);
+			path = HomeScene;
+			sourceTree = "<group>";
+		};
 		4D9BF2BD2C53EF43009ACAFA /* AuthScene */ = {
 			isa = PBXGroup;
 			children = (
@@ -300,6 +316,7 @@
 		4D9BF2C22C55053A009ACAFA /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				4D903F832C612BA30006CE60 /* HomeScene */,
 				4D9BF2BD2C53EF43009ACAFA /* AuthScene */,
 				4D65E5712C4FEF2400FA85A1 /* OnboardingScene */,
 			);
@@ -409,6 +426,7 @@
 				4DB8D1322C57ED2E00A73EDF /* AuthBottomView.swift in Sources */,
 				4D65E54F2C4EB38E00FA85A1 /* UIFont+Ext.swift in Sources */,
 				4D65E4BC2C4EA71E00FA85A1 /* ViewController.swift in Sources */,
+				4D903F872C612BEE0006CE60 /* HomePresenter.swift in Sources */,
 				4D65E5642C4FA12400FA85A1 /* AppointmentCoordinator.swift in Sources */,
 				4D65E5622C4FA0E000FA85A1 /* SearchCoordinator.swift in Sources */,
 				4D9BF2C92C5520D5009ACAFA /* MainTextField.swift in Sources */,
@@ -422,8 +440,10 @@
 				4D65E55A2C4F94BA00FA85A1 /* AppCoordinator.swift in Sources */,
 				4D9BF2BF2C53EF89009ACAFA /* AuthViewController.swift in Sources */,
 				4D13F2002C53BC2C00569543 /* OnboardingFlowFactory.swift in Sources */,
+				4D903F822C612B550006CE60 /* HomeSceneFactory.swift in Sources */,
 				4D903F802C6118360006CE60 /* AuthCoordinator.swift in Sources */,
 				4D65E5662C4FA15F00FA85A1 /* ProfileCoordinator.swift in Sources */,
+				4D903F852C612BBD0006CE60 /* HomeViewController.swift in Sources */,
 				4D65E4BA2C4EA71E00FA85A1 /* SceneDelegate.swift in Sources */,
 				4D65E5602C4FA0BE00FA85A1 /* HomeCoordinator.swift in Sources */,
 				4D65E5682C4FA1CC00FA85A1 /* TabBarController.swift in Sources */,

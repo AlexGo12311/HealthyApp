@@ -21,6 +21,7 @@ class AuthCoordinator: Coordinator {
     }
 }
 
+// MARK: - Navigation
 extension AuthCoordinator {
     func showAuthInitialScene() {
         guard let navigationController = navigationController else { return }
