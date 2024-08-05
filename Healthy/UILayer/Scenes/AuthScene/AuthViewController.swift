@@ -26,6 +26,8 @@ class AuthViewController: UIViewController {
     // MARK: - Properties
     private var state: LoginViewState = .initial
     var viewOutput: AuthOutput!
+    private var isKeyboardShow = false
+    private var topCTValue = 0.0
     // MARK: - Views
     private lazy var loginField = MainTextField()
     private lazy var passwordField = MainTextField()
@@ -39,12 +41,16 @@ class AuthViewController: UIViewController {
     private lazy var forgotButton = UIButton()
     private lazy var stackField = UIStackView()
     
+    // MARK: - Constraits
+    private var labelTopCT = NSLayoutConstraint()
+    
     
     // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
         setupLayout()
+        setupObservers()
     }
     
     // MARK: - Initializers
@@ -56,6 +62,10 @@ class AuthViewController: UIViewController {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    deinit {
+        stopKeyboardListener()
     }
     // MARK: - View layout configuration by scene
     private func setupLayout() {
@@ -176,6 +186,7 @@ private extension AuthViewController {
         view.addSubview(label)
         label.font = .Montserrat.Bold.size(of: 20)
         label.textColor = AccentColors.mainBlue
+        topCTValue = 72
         switch self.state {
         case .initial:
             label.text = "Welcome to"
@@ -185,10 +196,11 @@ private extension AuthViewController {
             label.text = "Hello Beautiful"
         }
         label.translatesAutoresizingMaskIntoConstraints = false
+        labelTopCT = label.topAnchor.constraint(equalTo: view.topAnchor, constant: topCTValue)
         
         NSLayoutConstraint.activate([
             label.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            label.topAnchor.constraint(equalTo: view.topAnchor, constant: 72)
+            labelTopCT
         ])
         
     }
@@ -352,8 +364,55 @@ extension AuthViewController: AuthInput {
     
 }
 
-
-
-#Preview("AuthVC") {
-    AuthViewController(output: AuthPresenter(), state: .login)
+// MARK: - Observers
+private extension AuthViewController {
+    func setupObservers() {
+        startKeyboardListener()
+    }
+    
+    func startKeyboardListener() {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillDisappear(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
+        view.addGestureRecognizer(tapGesture)
+    }
+    
+    func stopKeyboardListener() {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    @objc func handleTap(_ sender: UITapGestureRecognizer) {
+        view.endEditing(true)
+    }
+    
+    @objc func keyboardWillShow(_ notification: Notification) {
+        guard let keyboardFrame = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else { return }
+        let keybordHeight = keyboardFrame.cgRectValue.height
+        
+        if !isKeyboardShow {
+            UIView.animate(withDuration: 0.3) {
+                self.labelTopCT.constant -= keybordHeight/2
+                self.view.layoutIfNeeded()
+                self.isKeyboardShow = true
+            }
+        }
+    }
+    
+    @objc func keyboardWillDisappear(_ notification: Notification) {
+        if isKeyboardShow {
+            UIView.animate(withDuration: 0.3) {
+                self.labelTopCT.constant = self.topCTValue
+                self.view.layoutIfNeeded()
+                self.isKeyboardShow = false
+            }
+        }
+    }
 }
+
+
+
+//#Preview("AuthVC") {
+//    AuthViewController(output: AuthPresenter(), state: .login)
+//}
