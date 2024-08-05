@@ -55,7 +55,7 @@ class Coordinator: CoordinatorProtocol {
     
     var navigationController: UINavigationController?
     var childCoordinators: [CoordinatorProtocol]
-    var finishDelegate: CoordinatorFinishDelegate?
+    weak var finishDelegate: CoordinatorFinishDelegate?
     
     func finish() {
         print("finish")

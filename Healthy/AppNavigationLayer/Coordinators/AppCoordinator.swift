@@ -58,11 +58,11 @@ extension AppCoordinator: CoordinatorFinishDelegate {
         case .app:
             return
         case .auth:
-            navigationController?.viewControllers.removeAll()
             showMainFlow()
+            navigationController?.viewControllers = [navigationController?.viewControllers.last ?? UIViewController()]
         case .onboarding:
-            navigationController?.viewControllers.removeAll()
             showAuthFlow()
+            navigationController?.viewControllers = [navigationController?.viewControllers.last ?? UIViewController()]
         default:
             navigationController?.popToRootViewController(animated: false)
         }
