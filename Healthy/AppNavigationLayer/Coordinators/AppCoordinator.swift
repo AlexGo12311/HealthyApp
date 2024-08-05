@@ -15,7 +15,7 @@ class AppCoordinator: Coordinator {
     
     
     override func start() {
-        showAuthInitialScene()
+        showOnboardingFlow()
 //        if userStrage.isOnboarding {
 //            showMainFlow()
 //        } else {
@@ -43,29 +43,11 @@ private extension AppCoordinator {
         navigationController.pushViewController(tabBarController, animated: true)
     }
     
-    func showAuthInitialScene() {
+    func showAuthFlow() {
         guard let navigationController = navigationController else { return }
-        let aVC = authFactory.makeInitialScene(coordinator: self)
-        navigationController.pushViewController(aVC, animated: true)
-    }
-}
-
-// MARK: - AuthInitialScene methods
-extension AppCoordinator {
-    func showAuthLoginScene() {
-        guard let navigationController = navigationController else { return }
-        let aVC = authFactory.makeLoginScene(coordinator: self)
-        navigationController.pushViewController(aVC, animated: true)
-    }
-    
-    func showAuthSignUpScene() {
-        guard let navigationController = navigationController else { return }
-        let aVC = authFactory.makeSignUpScene(coordinator: self)
-        navigationController.pushViewController(aVC, animated: true)
-    }
-    
-    func showMainScene() {
-        showMainFlow()
+        let authCoordonator = AuthCoordinator(type: .auth, navigationController: navigationController, finishDelegate: self)
+        addChildCoordinator(authCoordonator)
+        authCoordonator.start()
     }
 }
 
@@ -75,9 +57,12 @@ extension AppCoordinator: CoordinatorFinishDelegate {
         switch childCoordinator.type {
         case .app:
             return
-        case .onboarding:
+        case .auth:
             navigationController?.viewControllers.removeAll()
             showMainFlow()
+        case .onboarding:
+            navigationController?.viewControllers.removeAll()
+            showAuthFlow()
         default:
             navigationController?.popToRootViewController(animated: false)
         }

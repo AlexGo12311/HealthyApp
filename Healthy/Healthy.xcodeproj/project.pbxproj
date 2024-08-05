@@ -49,6 +49,7 @@
 		4D65E5732C4FEF3700FA85A1 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D65E5722C4FEF3700FA85A1 /* OnboardingViewController.swift */; };
 		4D65E5752C4FEF4B00FA85A1 /* OnboardingViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D65E5742C4FEF4B00FA85A1 /* OnboardingViewPresenter.swift */; };
 		4D65E5772C50DEF300FA85A1 /* OnboardingLayerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D65E5762C50DEF300FA85A1 /* OnboardingLayerController.swift */; };
+		4D903F802C6118360006CE60 /* AuthCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D903F7F2C6118360006CE60 /* AuthCoordinator.swift */; };
 		4D9BF2BF2C53EF89009ACAFA /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9BF2BE2C53EF89009ACAFA /* AuthViewController.swift */; };
 		4D9BF2C52C550874009ACAFA /* MainButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9BF2C42C550874009ACAFA /* MainButton.swift */; };
 		4D9BF2C92C5520D5009ACAFA /* MainTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9BF2C82C5520D5009ACAFA /* MainTextField.swift */; };
@@ -102,6 +103,7 @@
 		4D65E5722C4FEF3700FA85A1 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		4D65E5742C4FEF4B00FA85A1 /* OnboardingViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewPresenter.swift; sourceTree = "<group>"; };
 		4D65E5762C50DEF300FA85A1 /* OnboardingLayerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingLayerController.swift; sourceTree = "<group>"; };
+		4D903F7F2C6118360006CE60 /* AuthCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthCoordinator.swift; sourceTree = "<group>"; };
 		4D9BF2BE2C53EF89009ACAFA /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
 		4D9BF2C42C550874009ACAFA /* MainButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainButton.swift; sourceTree = "<group>"; };
 		4D9BF2C82C5520D5009ACAFA /* MainTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTextField.swift; sourceTree = "<group>"; };
@@ -246,13 +248,14 @@
 		4D65E5552C4F8B0600FA85A1 /* Coordinators */ = {
 			isa = PBXGroup;
 			children = (
+				4D65E5572C4F8B2700FA85A1 /* Coordinator.swift */,
 				4D65E5592C4F94BA00FA85A1 /* AppCoordinator.swift */,
+				4D903F7F2C6118360006CE60 /* AuthCoordinator.swift */,
 				4D65E55D2C4F9A0700FA85A1 /* OnboardingCoordinator.swift */,
 				4D65E55F2C4FA0BE00FA85A1 /* HomeCoordinator.swift */,
 				4D65E5612C4FA0E000FA85A1 /* SearchCoordinator.swift */,
 				4D65E5632C4FA12400FA85A1 /* AppointmentCoordinator.swift */,
 				4D65E5652C4FA15F00FA85A1 /* ProfileCoordinator.swift */,
-				4D65E5572C4F8B2700FA85A1 /* Coordinator.swift */,
 			);
 			path = Coordinators;
 			sourceTree = "<group>";
@@ -419,6 +422,7 @@
 				4D65E55A2C4F94BA00FA85A1 /* AppCoordinator.swift in Sources */,
 				4D9BF2BF2C53EF89009ACAFA /* AuthViewController.swift in Sources */,
 				4D13F2002C53BC2C00569543 /* OnboardingFlowFactory.swift in Sources */,
+				4D903F802C6118360006CE60 /* AuthCoordinator.swift in Sources */,
 				4D65E5662C4FA15F00FA85A1 /* ProfileCoordinator.swift in Sources */,
 				4D65E4BA2C4EA71E00FA85A1 /* SceneDelegate.swift in Sources */,
 				4D65E5602C4FA0BE00FA85A1 /* HomeCoordinator.swift in Sources */,
