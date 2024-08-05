@@ -17,10 +17,10 @@ protocol AuthOutput: AnyObject {
 }
 
 class AuthPresenter {
-    private var coordinator: AppCoordinator?
+    private var coordinator: AuthCoordinator?
     weak var input: AuthInput?
     
-    init(coordinator: AppCoordinator? = nil, input: AuthInput? = nil) {
+    init(coordinator: AuthCoordinator? = nil, input: AuthInput? = nil) {
         self.coordinator = coordinator
         self.input = input
     }
@@ -28,7 +28,7 @@ class AuthPresenter {
 
 extension AuthPresenter {
     func goToMainFlow() {
-        coordinator?.showMainScene()    }
+        coordinator?.finish()  }
 }
 
 extension AuthPresenter: AuthOutput {

@@ -8,21 +8,22 @@
 import Foundation
 
 struct AuthFlowFactory {
-    static func makeInitialScene(coordinator: AppCoordinator) -> AuthViewController {
+    
+    static func makeInitialScene(coordinator: AuthCoordinator) -> AuthViewController {
         let presenter = AuthPresenter(coordinator: coordinator)
         let controller = AuthViewController(output: presenter, state: .initial)
         presenter.input = controller
         return controller
     }
     
-    static func makeLoginScene(coordinator: AppCoordinator) -> AuthViewController {
+    static func makeLoginScene(coordinator: AuthCoordinator) -> AuthViewController {
         let presenter = AuthPresenter(coordinator: coordinator)
         let controller = AuthViewController(output: presenter, state: .login)
         presenter.input = controller
         return controller
     }
     
-    static func makeSignUpScene(coordinator: AppCoordinator) -> AuthViewController {
+    static func makeSignUpScene(coordinator: AuthCoordinator) -> AuthViewController {
         let presenter = AuthPresenter(coordinator: coordinator)
         let controller = AuthViewController(output: presenter, state: .signUp)
         presenter.input = controller
