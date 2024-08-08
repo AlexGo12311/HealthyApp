@@ -9,6 +9,8 @@ import UIKit
 
 class SearchViewController: UIViewController {
 
+    
+    let sectionTitles = ["Your symptoms"]
     private var searchFeedTable: UITableView = {
         let table = UITableView(frame: .zero, style: .grouped)
         table.register(SymptomsTableViewCell.self, forCellReuseIdentifier: SymptomsTableViewCell.indentifier)
@@ -49,7 +51,7 @@ private extension SearchViewController {
 
 extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return sectionTitles.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -65,10 +67,24 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
         return 48
     }
     
-//    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-//        return 0
-//    }
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return sectionTitles[section]
+    }
     
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+//        switch section {
+//        case 0:
+//            return 24
+//        default:
+//            return 52
+//        }
+        return 52
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        guard let footer = view as? UITableViewHeaderFooterView else { return }
+        footer.textLabel?.font = .Montserrat.SemiBold.size(of: 16)
+    }
     
 }
     
