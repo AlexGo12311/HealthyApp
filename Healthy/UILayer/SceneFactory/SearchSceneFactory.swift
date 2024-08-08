@@ -7,10 +7,10 @@
 
 import UIKit
 
-struct HomeSceneFactory {
-    static func makeHomeScene(coordinator: HomeCoordinator) -> HomeViewController {
+struct SearchSceneFactory {
+    static func makeSearchScene(coordinator: SearchCoordinator) -> SearchViewController {
         // TODO: Add presenter
-        let controller = HomeViewController()
+        let controller = SearchViewController()
         return controller
     }
 }

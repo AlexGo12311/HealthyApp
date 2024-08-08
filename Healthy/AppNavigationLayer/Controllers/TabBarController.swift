@@ -9,6 +9,8 @@ import UIKit
 
 class TabBarController: UITabBarController {
     
+    var customTabBarView = UIView(frame: .zero)
+    
     init(controllers: [UIViewController]) {
         super.init(nibName: nil, bundle: nil)
         for tab in controllers {
@@ -20,27 +22,28 @@ class TabBarController: UITabBarController {
         fatalError("init(coder:) has not been implemented")
     }
     
-
     override func viewDidLoad() {
-        super.viewDidLoad()
-        tabBar.backgroundColor = .white
-        tabBar.layer.cornerRadius = CGFloat(24.0)
-        tabBar.tintColor = AccentColors.mainBlue
-        tabBar.itemPositioning = .centered
-        tabBar.itemWidth = 65.0
+            super.viewDidLoad()
+            tabBar.setCustomStyle()
+        }
+    
+}
+
+extension UITabBar {
+    func setCustomStyle() {
+        let appearence = UITabBarAppearance()
+        appearence.backgroundColor = .white
+        self.scrollEdgeAppearance = appearence
+        self.standardAppearance = appearence
+        self.layer.cornerRadius = CGFloat(24.0)
+        self.layer.masksToBounds = true
+        self.tintColor = AccentColors.mainBlue
+        self.itemPositioning = .centered
+        self.itemWidth = 65.0
         UITabBarItem.appearance().titlePositionAdjustment = UIOffset(horizontal: 0, vertical: -1)
         UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.font: UIFont.Montserrat.Regular.size(of: 10)], for: .normal)
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
+
+
+

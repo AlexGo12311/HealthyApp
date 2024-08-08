@@ -9,7 +9,7 @@ import UIKit
 
 class HomeCoordinator: Coordinator {
     // MARK: - Properties
-    private var factory = HomeSceneFactory.self
+    private var factory = SearchSceneFactory.self
     
     override func start() {
         showHomeScene()
@@ -23,8 +23,7 @@ class HomeCoordinator: Coordinator {
 // MARK: - Navigation
 extension HomeCoordinator {
     func showHomeScene() {
-        guard let navigationController = navigationController else { return }
-        let aVC = factory.makeHomeScene(coordinator: self)
-        navigationController.pushViewController(aVC, animated: true)
+        let vc = ViewController()
+        vc.view.backgroundColor = AccentColors.bgColor
     }
 }

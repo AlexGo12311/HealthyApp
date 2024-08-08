@@ -1,9 +1,3 @@
-//
-//  ReuseTextField.swift
-//  Healthy
-//
-//  Created by Alex Neumark on 27.07.2024.
-//
 
 import UIKit
 
