@@ -18,4 +18,8 @@ enum AccentColors {
     static let pharmacy = UIColor(hex: "#EAF2FF")
     static let hospitals = UIColor(hex: "#E4F8EB")
     static let textGray = UIColor(hex: "#6A788E")
+    static let insulinImage = UIColor(hex: "#E6F3FC")
+    static let searchColor = UIColor(hex: "#A5BCE7")
+    static let shadowColor = UIColor(hex: "#18396B")
+    static let blackColor = UIColor(hex: "#091F44")
 }

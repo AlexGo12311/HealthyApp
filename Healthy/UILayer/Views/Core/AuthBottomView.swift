@@ -71,6 +71,6 @@ extension AuthBottomView {
 
 }
 
-#Preview("AuthButtomView", traits: .fixedLayout(width: 300, height: 50)) {
-    AuthBottomView()
-}
+//#Preview("AuthButtomView", traits: .fixedLayout(width: 300, height: 50)) {
+//    AuthBottomView()
+//}

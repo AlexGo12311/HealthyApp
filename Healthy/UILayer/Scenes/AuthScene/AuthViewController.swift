@@ -107,14 +107,11 @@ class AuthViewController: UIViewController {
         setupLoaderView()
     }
     // MARK: - Navigation icons setup
-    func setupNavigationBar() {
-        let backImage = UIImage(resource: .back)
-        let backButtonItem = UIBarButtonItem(image: backImage,
-                                             style: .plain,
-                                             target: navigationController,
-                                             action: #selector(navigationController?.popViewController(animated:)))
+    private func setupNavigationBar() {
+        let backButton = BackButton()
+        backButton.addTarget(navigationController, action: #selector(navigationController?.popViewController(animated:)), for: .touchUpInside)
+        let backButtonItem = UIBarButtonItem(customView: backButton)
         navigationItem.leftBarButtonItem = backButtonItem
-        navigationItem.leftBarButtonItem?.tintColor = AccentColors.mainBlue
     }
  
     func setupLoaderView() {

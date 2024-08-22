@@ -56,16 +56,18 @@ class Coordinator: CoordinatorProtocol {
     var navigationController: UINavigationController?
     var childCoordinators: [CoordinatorProtocol]
     weak var finishDelegate: CoordinatorFinishDelegate?
+    var window: UIWindow?
     
     func finish() {
         print("finish")
     }
     
-    init(type: CoordinatorTypes, navigationController: UINavigationController, childCoordinators: [CoordinatorProtocol] = [CoordinatorProtocol](), finishDelegate: CoordinatorFinishDelegate? = nil) {
+    init(type: CoordinatorTypes, navigationController: UINavigationController, childCoordinators: [CoordinatorProtocol] = [CoordinatorProtocol](), finishDelegate: CoordinatorFinishDelegate? = nil, window: UIWindow? = nil) {
         self.type = type
         self.navigationController = navigationController
         self.childCoordinators = childCoordinators
         self.finishDelegate = finishDelegate
+        self.window = window
     }
     
     deinit {
