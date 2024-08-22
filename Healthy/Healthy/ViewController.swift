@@ -9,6 +9,15 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    
+    private func setupNavigationBar() {
+        let searchBackButton = BackButton()
+        searchBackButton.addTarget(navigationController, action: #selector(navigationController?.popViewController(animated:)), for: .touchUpInside)
+        let searchBackItem = UIBarButtonItem(customView: searchBackButton)
+        navigationItem.leftBarButtonItem = searchBackItem
+    }
+    
+    
     var testLabel: UILabel = {
         let testLabel = UILabel()
         testLabel.text = "Hello, world!"
@@ -24,7 +33,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         self.view.backgroundColor = AccentColors.bgColor
         configureTest()
-        
+        setupNavigationBar()
     }
     
     func configureTest() {

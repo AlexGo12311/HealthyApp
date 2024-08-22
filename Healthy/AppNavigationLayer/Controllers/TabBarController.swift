@@ -23,10 +23,9 @@ class TabBarController: UITabBarController {
     }
     
     override func viewDidLoad() {
-            super.viewDidLoad()
-            tabBar.setCustomStyle()
-        }
-    
+        super.viewDidLoad()
+        tabBar.setCustomStyle()
+    }
 }
 
 extension UITabBar {
@@ -36,6 +35,22 @@ extension UITabBar {
         self.scrollEdgeAppearance = appearence
         self.standardAppearance = appearence
         self.layer.cornerRadius = CGFloat(24.0)
+        self.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner] // Для закругления именно сверху
+        
+        let shadowLayer = CALayer()
+        shadowLayer.frame = self.frame
+        shadowLayer.cornerRadius = self.layer.cornerRadius
+        shadowLayer.backgroundColor = UIColor.white.cgColor // Делаем его белым как основной фон
+        shadowLayer.shadowOffset = CGSize(width: 0, height: 0)
+        shadowLayer.shadowRadius = 30
+        shadowLayer.shadowColor = AccentColors.shadowColor?.cgColor
+        shadowLayer.shadowOpacity = 0.08/*0.25*/
+        
+        // Добавляем слой с тенью под таббар
+        if let superview = self.superview {
+            superview.layer.insertSublayer(shadowLayer, below: self.layer)
+        }
+        
         self.layer.masksToBounds = true
         self.tintColor = AccentColors.mainBlue
         self.itemPositioning = .centered

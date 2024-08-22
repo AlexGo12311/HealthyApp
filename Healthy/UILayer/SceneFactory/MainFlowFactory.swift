@@ -16,6 +16,7 @@ struct MainFlowFactory {
         superCoordinator.addChildCoordinator(homeCoordinator)
         homeCoordinator.start()
         
+        
         let searchNavigationController = UINavigationController()
         searchNavigationController.tabBarItem = UITabBarItem(title: "Search", image: UIImage.init(resource: .search), tag: 1)
         let searchCoordinator = SearchCoordinator(type: .search, navigationController: searchNavigationController)
@@ -23,12 +24,14 @@ struct MainFlowFactory {
         superCoordinator.addChildCoordinator(searchCoordinator)
         searchCoordinator.start()
         
+        
         let appointmentNavigationController = UINavigationController()
         appointmentNavigationController.tabBarItem = UITabBarItem(title: "Appointment", image: UIImage.init(resource: .appointment), tag: 2)
         let appointmentCoordinator = AppointmentCoordinator(type: .appointment, navigationController: appointmentNavigationController)
         appointmentCoordinator.finishDelegate = finishDelegate
         superCoordinator.addChildCoordinator(appointmentCoordinator)
         appointmentCoordinator.start()
+        
         
         let profileNavigationController = UINavigationController()
         profileNavigationController.tabBarItem = UITabBarItem(title: "Profile", image: UIImage.init(resource: .profile), tag: 3)

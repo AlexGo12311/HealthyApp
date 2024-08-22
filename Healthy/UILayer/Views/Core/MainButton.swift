@@ -84,8 +84,8 @@ class MainButton: UIView {
 
 }
 
-#Preview("MainButton", traits: .fixedLayout(width: 312, height: 48)) {
-    let button = MainButton(appearence: .plain, title: "Hi")
-    button.setTitle("Next")
-    return button
-}
+//#Preview("MainButton", traits: .fixedLayout(width: 312, height: 48)) {
+//    let button = MainButton(appearence: .plain, title: "Hi")
+//    button.setTitle("Next")
+//    return button
+//}

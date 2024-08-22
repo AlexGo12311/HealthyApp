@@ -35,6 +35,7 @@ class SearchHeaderUIView: UIView {
         self.addSubview(insulinImage)
         setupSearchField()
         setupQuickyImage()
+        setupShadow(self)
     }
     
     required init?(coder: NSCoder) {
