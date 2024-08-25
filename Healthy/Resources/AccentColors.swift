@@ -15,6 +15,7 @@ enum AccentColors {
     static let convenienceTextColor = UIColor(hex: "#94A3B8")
     static let secondTextColor = UIColor(hex: "#575A61")
     static let doctors = UIColor(hex: "#FAE9E9")
+    static let dateViewColor = UIColor(hex: "#F5FAFF")
     static let pharmacy = UIColor(hex: "#EAF2FF")
     static let hospitals = UIColor(hex: "#E4F8EB")
     static let textGray = UIColor(hex: "#6A788E")

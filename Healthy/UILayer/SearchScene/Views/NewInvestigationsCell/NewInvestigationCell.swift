@@ -109,9 +109,11 @@ private extension NewInvestigationCell {
         
         NSLayoutConstraint.activate([
             mainImage.topAnchor.constraint(equalTo: view.topAnchor, constant: 16),
-            mainImage.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -16),
+//            mainImage.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -16),
             mainImage.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
-            mainImage.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -247/*-266*/)
+//            mainImage.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -247/*-266*/)
+            mainImage.widthAnchor.constraint(equalToConstant: 80),
+            mainImage.heightAnchor.constraint(equalToConstant: 80)
         ])
     }
     
