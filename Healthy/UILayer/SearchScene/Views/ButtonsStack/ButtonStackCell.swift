@@ -59,6 +59,7 @@ class ButtonStackCell: UITableViewCell {
         contentView.addSubview(stack)
         stack.axis = .horizontal
         stack.spacing = 16 /*24*/
+        stack.distribution = .fillEqually
         
         stack.addArrangedSubview(doctorsButton)
         stack.addArrangedSubview(pharmacyButton)
@@ -71,11 +72,6 @@ class ButtonStackCell: UITableViewCell {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(viewTapped(_:)))
         doctorsButton.addGestureRecognizer(tapGesture)
         doctorsButton.isUserInteractionEnabled = true
-
-        NSLayoutConstraint.activate([
-            doctorsButton.widthAnchor.constraint(equalToConstant: 104),
-            doctorsButton.heightAnchor.constraint(equalToConstant: 88)
-        ])
     }
     
     private func setupPharmacyButton() {
@@ -83,21 +79,12 @@ class ButtonStackCell: UITableViewCell {
         pharmacyButton.addGestureRecognizer(tapGesture)
         pharmacyButton.isUserInteractionEnabled = true
 
-        NSLayoutConstraint.activate([
-            pharmacyButton.widthAnchor.constraint(equalToConstant: 104),
-            pharmacyButton.heightAnchor.constraint(equalToConstant: 88)
-        ])
     }
     
     private func setupHospitalsButton() {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(viewTapped(_:)))
         hospitalsButton.addGestureRecognizer(tapGesture)
         hospitalsButton.isUserInteractionEnabled = true
-
-        NSLayoutConstraint.activate([
-            hospitalsButton.widthAnchor.constraint(equalToConstant: 104),
-            hospitalsButton.heightAnchor.constraint(equalToConstant: 88)
-        ])
     }
     
     override func layoutSubviews() {

@@ -40,7 +40,7 @@ class MainButton: UIView {
         button.setTitle(buttonTitle, for: .normal)
         setAppearence(style: buttonStyle)
         button.titleLabel?.font = .Montserrat.Regular.size(of: 16)
-        button.layer.cornerRadius = 16
+        button.layer.cornerRadius = 12
         
         button.translatesAutoresizingMaskIntoConstraints = false
         
@@ -63,7 +63,7 @@ class MainButton: UIView {
         case .plain:
             button.backgroundColor = .clear
             button.setTitleColor(AccentColors.mainBlue, for: .normal)
-            button.layer.borderWidth = 3
+            button.layer.borderWidth = 1
             button.layer.borderColor = AccentColors.mainBlue?.cgColor
         case .greyFill:
             button.backgroundColor = AccentColors.unselectedIcon

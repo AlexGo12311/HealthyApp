@@ -22,7 +22,8 @@ private struct newInvestigationTitles {
 }
 
 class SearchViewController: UIViewController {
-    let sectionTitles = [" ", "Your symptoms", "New investigations", " ", " "]
+    private let sectionTitles = [" ", "Your symptoms", "New investigations", " ", " "]
+    
     private var searchFeedTable: UITableView = {
         let table = UITableView(frame: .zero, style: .grouped)
         table.register(SymptomsTableViewCell.self, forCellReuseIdentifier: SymptomsTableViewCell.indentifier)
@@ -41,9 +42,26 @@ class SearchViewController: UIViewController {
     
     
     override func viewDidLayoutSubviews() {
-        searchFeedTable.frame = view.bounds
+        super.viewDidLayoutSubviews()
+        let safeAreaInsets = view.safeAreaInsets
+        let safeAreaFrame = CGRect(
+            x: safeAreaInsets.left,
+            y: safeAreaInsets.top,
+            width: view.bounds.width - safeAreaInsets.left - safeAreaInsets.right,
+            height: view.bounds.height - safeAreaInsets.top - safeAreaInsets.bottom
+        )
+        
+        
+        
+        searchFeedTable.frame = safeAreaFrame
         searchFeedTable.backgroundColor = AccentColors.bgColor
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
+
 
 }
 
@@ -54,7 +72,12 @@ private extension SearchViewController {
     }
     
     func setupHeaderView() {
-        searchFeedTable.tableHeaderView = SearchHeaderUIView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: 220))
+        let headerView = SearchHeaderUIView(frame: CGRect(x: 0, y: 16, width: view.bounds.width, height: 220)) // отступ 16 и высота 220
+        let heightWithPadding: CGFloat = 236
+        
+        let containerView = UIView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: heightWithPadding))
+        containerView.addSubview(headerView)
+        searchFeedTable.tableHeaderView = containerView
     }
     
     func setupSearchFeedTable() {
@@ -133,7 +156,10 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
         if section == sectionsForSearchScene.newInvestigation2.rawValue || section == sectionsForSearchScene.newInvestigation3.rawValue {
             return 0
         }
-        return 24
+        if section == sectionsForSearchScene.buttonStack.rawValue {
+            return 24
+        }
+        return 28
     }
     
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {

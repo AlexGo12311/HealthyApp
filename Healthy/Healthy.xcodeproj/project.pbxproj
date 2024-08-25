@@ -54,9 +54,12 @@
 		4D9BF2BF2C53EF89009ACAFA /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9BF2BE2C53EF89009ACAFA /* AuthViewController.swift */; };
 		4D9BF2C52C550874009ACAFA /* MainButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9BF2C42C550874009ACAFA /* MainButton.swift */; };
 		4D9BF2C92C5520D5009ACAFA /* MainTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9BF2C82C5520D5009ACAFA /* MainTextField.swift */; };
-		4DB7446A2C6E113B00715D92 /* InvestigationCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB744692C6E113B00715D92 /* InvestigationCollectionViewCell.swift */; };
 		4DB7446C2C6F76D000715D92 /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB7446B2C6F76D000715D92 /* String+Ext.swift */; };
 		4DB7446E2C75EB9700715D92 /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB7446D2C75EB9700715D92 /* UIView+Ext.swift */; };
+		4DB744712C7738F000715D92 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB744702C7738F000715D92 /* HomeViewController.swift */; };
+		4DB744732C773B5E00715D92 /* homeSceneFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB744722C773B5E00715D92 /* homeSceneFactory.swift */; };
+		4DB744782C774A9400715D92 /* NearestTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB744772C774A9400715D92 /* NearestTableViewCell.swift */; };
+		4DB7447D2C7B243700715D92 /* SearchBarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB7447C2C7B243700715D92 /* SearchBarCell.swift */; };
 		4DB8D1302C57EB3B00A73EDF /* AuthViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB8D12F2C57EB3B00A73EDF /* AuthViewPresenter.swift */; };
 		4DB8D1322C57ED2E00A73EDF /* AuthBottomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB8D1312C57ED2E00A73EDF /* AuthBottomView.swift */; };
 		4DE793C92C5CF6C500FA40BA /* AuthFlowFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE793C82C5CF6C500FA40BA /* AuthFlowFactory.swift */; };
@@ -123,9 +126,12 @@
 		4D9BF2BE2C53EF89009ACAFA /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
 		4D9BF2C42C550874009ACAFA /* MainButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainButton.swift; sourceTree = "<group>"; };
 		4D9BF2C82C5520D5009ACAFA /* MainTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTextField.swift; sourceTree = "<group>"; };
-		4DB744692C6E113B00715D92 /* InvestigationCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvestigationCollectionViewCell.swift; sourceTree = "<group>"; };
 		4DB7446B2C6F76D000715D92 /* String+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
 		4DB7446D2C75EB9700715D92 /* UIView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
+		4DB744702C7738F000715D92 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		4DB744722C773B5E00715D92 /* homeSceneFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = homeSceneFactory.swift; sourceTree = "<group>"; };
+		4DB744772C774A9400715D92 /* NearestTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearestTableViewCell.swift; sourceTree = "<group>"; };
+		4DB7447C2C7B243700715D92 /* SearchBarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarCell.swift; sourceTree = "<group>"; };
 		4DB8D12F2C57EB3B00A73EDF /* AuthViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewPresenter.swift; sourceTree = "<group>"; };
 		4DB8D1312C57ED2E00A73EDF /* AuthBottomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthBottomView.swift; sourceTree = "<group>"; };
 		4DE793C82C5CF6C500FA40BA /* AuthFlowFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthFlowFactory.swift; sourceTree = "<group>"; };
@@ -160,6 +166,7 @@
 				4D13F2012C53BD0100569543 /* MainFlowFactory.swift */,
 				4DE793C82C5CF6C500FA40BA /* AuthFlowFactory.swift */,
 				4D903F812C612B550006CE60 /* SearchSceneFactory.swift */,
+				4DB744722C773B5E00715D92 /* homeSceneFactory.swift */,
 			);
 			path = SceneFactory;
 			sourceTree = "<group>";
@@ -350,8 +357,35 @@
 		4DB7446F2C77375200715D92 /* HomeScene */ = {
 			isa = PBXGroup;
 			children = (
+				4DB744762C774A6700715D92 /* Views */,
+				4DB744702C7738F000715D92 /* HomeViewController.swift */,
 			);
 			path = HomeScene;
+			sourceTree = "<group>";
+		};
+		4DB744752C774A5A00715D92 /* NearestVisit */ = {
+			isa = PBXGroup;
+			children = (
+				4DB744772C774A9400715D92 /* NearestTableViewCell.swift */,
+			);
+			path = NearestVisit;
+			sourceTree = "<group>";
+		};
+		4DB744762C774A6700715D92 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				4DB7447B2C7B240C00715D92 /* SearchBar */,
+				4DB744752C774A5A00715D92 /* NearestVisit */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		4DB7447B2C7B240C00715D92 /* SearchBar */ = {
+			isa = PBXGroup;
+			children = (
+				4DB7447C2C7B243700715D92 /* SearchBarCell.swift */,
+			);
+			path = SearchBar;
 			sourceTree = "<group>";
 		};
 		4DFE90592C62252900B4A9D4 /* SearchScene */ = {
@@ -428,7 +462,6 @@
 			isa = PBXGroup;
 			children = (
 				4DFE907E2C6E0DF700B4A9D4 /* NewInvestigationCell.swift */,
-				4DB744692C6E113B00715D92 /* InvestigationCollectionViewCell.swift */,
 			);
 			path = NewInvestigationsCell;
 			sourceTree = "<group>";
@@ -542,15 +575,16 @@
 				4D65E5732C4FEF3700FA85A1 /* OnboardingViewController.swift in Sources */,
 				4D65E55A2C4F94BA00FA85A1 /* AppCoordinator.swift in Sources */,
 				4DFE907F2C6E0DF700B4A9D4 /* NewInvestigationCell.swift in Sources */,
+				4DB744712C7738F000715D92 /* HomeViewController.swift in Sources */,
 				4DFE90712C676E5300B4A9D4 /* CustomButtonForCollection.swift in Sources */,
 				4DFE90792C6A536B00B4A9D4 /* Shadow.swift in Sources */,
 				4D9BF2BF2C53EF89009ACAFA /* AuthViewController.swift in Sources */,
 				4D13F2002C53BC2C00569543 /* OnboardingFlowFactory.swift in Sources */,
 				4D903F822C612B550006CE60 /* SearchSceneFactory.swift in Sources */,
-				4DB7446A2C6E113B00715D92 /* InvestigationCollectionViewCell.swift in Sources */,
 				4DFE906F2C660D6C00B4A9D4 /* CustomButtonForStack.swift in Sources */,
 				4D903F802C6118360006CE60 /* AuthCoordinator.swift in Sources */,
 				4DFE906D2C660D1800B4A9D4 /* ButtonStackCell.swift in Sources */,
+				4DB744782C774A9400715D92 /* NearestTableViewCell.swift in Sources */,
 				4D65E5662C4FA15F00FA85A1 /* ProfileCoordinator.swift in Sources */,
 				4D65E4BA2C4EA71E00FA85A1 /* SceneDelegate.swift in Sources */,
 				4DFE906B2C64CBBC00B4A9D4 /* SearchField.swift in Sources */,
@@ -558,12 +592,14 @@
 				4D65E5682C4FA1CC00FA85A1 /* TabBarController.swift in Sources */,
 				4D65E5532C4EBC6F00FA85A1 /* AccentColors.swift in Sources */,
 				4D5875A62C53937E005E4BD9 /* UserStorage.swift in Sources */,
+				4DB744732C773B5E00715D92 /* homeSceneFactory.swift in Sources */,
 				4DB7446E2C75EB9700715D92 /* UIView+Ext.swift in Sources */,
 				4DB7446C2C6F76D000715D92 /* String+Ext.swift in Sources */,
 				4D9BF2C52C550874009ACAFA /* MainButton.swift in Sources */,
 				4D65E5752C4FEF4B00FA85A1 /* OnboardingViewPresenter.swift in Sources */,
 				4D65E5582C4F8B2700FA85A1 /* Coordinator.swift in Sources */,
 				4DFE90642C622D5200B4A9D4 /* SearchCollectionCell.swift in Sources */,
+				4DB7447D2C7B243700715D92 /* SearchBarCell.swift in Sources */,
 				4D65E5772C50DEF300FA85A1 /* OnboardingLayerController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
