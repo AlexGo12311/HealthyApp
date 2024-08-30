@@ -79,6 +79,7 @@ class CustomButtonForStack: UIView {
         
         self.addSubview(buttonTitle)
         buttonTitle.text = "Doctors"
+        buttonTitle.textColor = AccentColors.textColor
         buttonTitle.translatesAutoresizingMaskIntoConstraints = false
         
         // buttonTitle constraints
@@ -105,6 +106,7 @@ class CustomButtonForStack: UIView {
         
         self.addSubview(buttonTitle)
         buttonTitle.text = "Pharmacy"
+        buttonTitle.textColor = AccentColors.textColor
         buttonTitle.translatesAutoresizingMaskIntoConstraints = false
         
         // buttonTitle constraints
@@ -131,6 +133,7 @@ class CustomButtonForStack: UIView {
         
         self.addSubview(buttonTitle)
         buttonTitle.text = "Hospitals"
+        buttonTitle.textColor = AccentColors.textColor
         buttonTitle.translatesAutoresizingMaskIntoConstraints = false
         
         // buttonTitle constraints

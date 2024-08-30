@@ -20,16 +20,18 @@ class HomeViewController: UIViewController {
     private enum sections: Int {
         case search
         case nearestVisit
+        case segmented
     }
     
     let homeFeedTabel: UITableView = {
         let tabel = UITableView(frame: .zero, style: .grouped)
         tabel.register(SearchBarCell.self, forCellReuseIdentifier: SearchBarCell.identifier)
         tabel.register(NearestTableViewCell.self, forCellReuseIdentifier: NearestTableViewCell.identifier)
+        tabel.register(SegmentedCell.self, forCellReuseIdentifier: SegmentedCell.identifier)
         return tabel
     }()
     
-    private let sectionTitles = [" ", "Nearest visit"]
+    private let sectionTitles = [" ", "Nearest visit", " "]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -95,6 +97,9 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
             setupShadow(cell)
             cell.delegate = self
             return cell
+        case sections.segmented.rawValue:
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: SegmentedCell.identifier, for: indexPath) as? SegmentedCell else { return UITableViewCell() }
+            return cell
         default:
             return UITableViewCell()
         }
@@ -106,6 +111,8 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
             return 48
         case sections.nearestVisit.rawValue:
             return 230
+        case sections.segmented.rawValue:
+            return 424
         default:
             return UITableView.automaticDimension
         }
@@ -125,6 +132,10 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         if section == sections.search.rawValue {
             return 8
+        }
+        
+        if section == sections.segmented.rawValue {
+            return 12
         }
         return 28
     }

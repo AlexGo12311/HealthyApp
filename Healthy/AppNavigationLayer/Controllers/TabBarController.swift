@@ -42,9 +42,9 @@ extension UITabBar {
         shadowLayer.cornerRadius = self.layer.cornerRadius
         shadowLayer.backgroundColor = UIColor.white.cgColor // Делаем его белым как основной фон
         shadowLayer.shadowOffset = CGSize(width: 0, height: 0)
-        shadowLayer.shadowRadius = 10
+        shadowLayer.shadowRadius = 10 /*30*/
         shadowLayer.shadowColor = AccentColors.shadowColor?.cgColor
-        shadowLayer.shadowOpacity = 0.15/*0.25*/
+        shadowLayer.shadowOpacity = 0.1 /*0.25*/
         
         // Добавляем слой с тенью под таббар
         if let superview = self.superview {

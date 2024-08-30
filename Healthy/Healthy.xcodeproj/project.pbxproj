@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		4D13F2002C53BC2C00569543 /* OnboardingFlowFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D13F1FF2C53BC2C00569543 /* OnboardingFlowFactory.swift */; };
 		4D13F2022C53BD0100569543 /* MainFlowFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D13F2012C53BD0100569543 /* MainFlowFactory.swift */; };
+		4D15B6BB2C8096C500D16F19 /* HealthySegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D15B6BA2C8096C500D16F19 /* HealthySegmentedControl.swift */; };
+		4D15B6BF2C81BEB200D16F19 /* SegmentedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D15B6BE2C81BEB200D16F19 /* SegmentedButton.swift */; };
+		4D15B6C12C81D1B500D16F19 /* SegmentedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D15B6C02C81D1B500D16F19 /* SegmentedCell.swift */; };
 		4D5875A62C53937E005E4BD9 /* UserStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D5875A52C53937E005E4BD9 /* UserStorage.swift */; };
 		4D65E4B82C4EA71E00FA85A1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D65E4B72C4EA71E00FA85A1 /* AppDelegate.swift */; };
 		4D65E4BA2C4EA71E00FA85A1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D65E4B92C4EA71E00FA85A1 /* SceneDelegate.swift */; };
@@ -79,6 +82,9 @@
 /* Begin PBXFileReference section */
 		4D13F1FF2C53BC2C00569543 /* OnboardingFlowFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingFlowFactory.swift; sourceTree = "<group>"; };
 		4D13F2012C53BD0100569543 /* MainFlowFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainFlowFactory.swift; sourceTree = "<group>"; };
+		4D15B6BA2C8096C500D16F19 /* HealthySegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthySegmentedControl.swift; sourceTree = "<group>"; };
+		4D15B6BE2C81BEB200D16F19 /* SegmentedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedButton.swift; sourceTree = "<group>"; };
+		4D15B6C02C81D1B500D16F19 /* SegmentedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedCell.swift; sourceTree = "<group>"; };
 		4D5875A52C53937E005E4BD9 /* UserStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStorage.swift; sourceTree = "<group>"; };
 		4D65E4B42C4EA71E00FA85A1 /* Healthy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Healthy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D65E4B72C4EA71E00FA85A1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -169,6 +175,16 @@
 				4DB744722C773B5E00715D92 /* homeSceneFactory.swift */,
 			);
 			path = SceneFactory;
+			sourceTree = "<group>";
+		};
+		4D15B6B92C80969300D16F19 /* CustomSegmentedControl */ = {
+			isa = PBXGroup;
+			children = (
+				4D15B6BA2C8096C500D16F19 /* HealthySegmentedControl.swift */,
+				4D15B6BE2C81BEB200D16F19 /* SegmentedButton.swift */,
+				4D15B6C02C81D1B500D16F19 /* SegmentedCell.swift */,
+			);
+			path = CustomSegmentedControl;
 			sourceTree = "<group>";
 		};
 		4D5875A32C53935B005E4BD9 /* Services */ = {
@@ -374,6 +390,7 @@
 		4DB744762C774A6700715D92 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				4D15B6B92C80969300D16F19 /* CustomSegmentedControl */,
 				4DB7447B2C7B240C00715D92 /* SearchBar */,
 				4DB744752C774A5A00715D92 /* NearestVisit */,
 			);
@@ -580,7 +597,9 @@
 				4DFE90792C6A536B00B4A9D4 /* Shadow.swift in Sources */,
 				4D9BF2BF2C53EF89009ACAFA /* AuthViewController.swift in Sources */,
 				4D13F2002C53BC2C00569543 /* OnboardingFlowFactory.swift in Sources */,
+				4D15B6BF2C81BEB200D16F19 /* SegmentedButton.swift in Sources */,
 				4D903F822C612B550006CE60 /* SearchSceneFactory.swift in Sources */,
+				4D15B6C12C81D1B500D16F19 /* SegmentedCell.swift in Sources */,
 				4DFE906F2C660D6C00B4A9D4 /* CustomButtonForStack.swift in Sources */,
 				4D903F802C6118360006CE60 /* AuthCoordinator.swift in Sources */,
 				4DFE906D2C660D1800B4A9D4 /* ButtonStackCell.swift in Sources */,
@@ -590,6 +609,7 @@
 				4DFE906B2C64CBBC00B4A9D4 /* SearchField.swift in Sources */,
 				4D65E5602C4FA0BE00FA85A1 /* HomeCoordinator.swift in Sources */,
 				4D65E5682C4FA1CC00FA85A1 /* TabBarController.swift in Sources */,
+				4D15B6BB2C8096C500D16F19 /* HealthySegmentedControl.swift in Sources */,
 				4D65E5532C4EBC6F00FA85A1 /* AccentColors.swift in Sources */,
 				4D5875A62C53937E005E4BD9 /* UserStorage.swift in Sources */,
 				4DB744732C773B5E00715D92 /* homeSceneFactory.swift in Sources */,
@@ -752,11 +772,12 @@
 				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 0.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.neumark.Healthy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -780,11 +801,12 @@
 				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 0.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.neumark.Healthy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
