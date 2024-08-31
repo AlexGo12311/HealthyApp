@@ -71,10 +71,10 @@ class CustomButtonForStack: UIView {
         
         // DoctorsImage constraints
         NSLayoutConstraint.activate([
-            doctorsImage.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 36),
-            doctorsImage.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -36),
             doctorsImage.topAnchor.constraint(equalTo: self.topAnchor, constant: 19),
-            doctorsImage.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -37)
+            doctorsImage.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            doctorsImage.widthAnchor.constraint(equalToConstant: 32),
+            doctorsImage.heightAnchor.constraint(equalToConstant: 32)
         ])
         
         self.addSubview(buttonTitle)
@@ -98,10 +98,10 @@ class CustomButtonForStack: UIView {
         
         // DoctorsImage constraints
         NSLayoutConstraint.activate([
-            pharmacyImage.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 36),
-            pharmacyImage.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -36),
             pharmacyImage.topAnchor.constraint(equalTo: self.topAnchor, constant: 19),
-            pharmacyImage.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -37)
+            pharmacyImage.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            pharmacyImage.widthAnchor.constraint(equalToConstant: 32),
+            pharmacyImage.heightAnchor.constraint(equalToConstant: 32)
         ])
         
         self.addSubview(buttonTitle)
@@ -125,10 +125,10 @@ class CustomButtonForStack: UIView {
         
         // DoctorsImage constraints
         NSLayoutConstraint.activate([
-            hospitalsImage.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 36),
-            hospitalsImage.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -36),
             hospitalsImage.topAnchor.constraint(equalTo: self.topAnchor, constant: 19),
-            hospitalsImage.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -37)
+            hospitalsImage.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            hospitalsImage.widthAnchor.constraint(equalToConstant: 32),
+            hospitalsImage.heightAnchor.constraint(equalToConstant: 32)
         ])
         
         self.addSubview(buttonTitle)
