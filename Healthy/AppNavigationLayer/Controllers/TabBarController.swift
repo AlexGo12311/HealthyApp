@@ -24,6 +24,10 @@ class TabBarController: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+//        tabBar.setCustomStyle()
+    }
+    
+    override func viewDidLayoutSubviews() {
         tabBar.setCustomStyle()
     }
 }
@@ -44,7 +48,7 @@ extension UITabBar {
         shadowLayer.shadowOffset = CGSize(width: 0, height: 0)
         shadowLayer.shadowRadius = 10 /*30*/
         shadowLayer.shadowColor = AccentColors.shadowColor?.cgColor
-        shadowLayer.shadowOpacity = 0.1 /*0.25*/
+        shadowLayer.shadowOpacity = 0.08 /*0.25*/
         
         // Добавляем слой с тенью под таббар
         if let superview = self.superview {

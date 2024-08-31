@@ -9,7 +9,7 @@ import UIKit
 
 public func setupShadow(_ cell: UITableViewCell) {
     cell.layer.shadowColor = AccentColors.shadowColor?.cgColor
-    cell.layer.shadowOpacity = 0.1
+    cell.layer.shadowOpacity = 0.08
     cell.layer.shadowOffset = CGSize(width: 0, height: 0)
     cell.layer.shadowRadius = 10
     cell.layer.masksToBounds = false
@@ -17,7 +17,7 @@ public func setupShadow(_ cell: UITableViewCell) {
 
 public func setupShadow(_ view: UIView) {
     view.layer.shadowColor = AccentColors.shadowColor?.cgColor
-    view.layer.shadowOpacity = 0.1
+    view.layer.shadowOpacity = 0.08
     view.layer.shadowOffset = CGSize(width: 0, height: 0)
     view.layer.shadowRadius = 10
     view.layer.masksToBounds = false
