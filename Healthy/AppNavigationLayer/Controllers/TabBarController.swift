@@ -10,6 +10,7 @@ import UIKit
 class TabBarController: UITabBarController {
     
     var customTabBarView = UIView(frame: .zero)
+    private var isTabBarCustomized = false
     
     init(controllers: [UIViewController]) {
         super.init(nibName: nil, bundle: nil)
@@ -28,8 +29,14 @@ class TabBarController: UITabBarController {
     }
     
     override func viewDidLayoutSubviews() {
-        tabBar.setCustomStyle()
-    }
+            super.viewDidLayoutSubviews()
+            
+            // Проверяем, была ли кастомизация уже выполнена
+            if !isTabBarCustomized {
+                tabBar.setCustomStyle() // Применяем кастомный стиль к UITabBar
+                isTabBarCustomized = true // Устанавливаем флаг, чтобы кастомизация не повторялась
+            }
+        }
 }
 
 extension UITabBar {
