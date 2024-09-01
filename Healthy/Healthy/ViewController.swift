@@ -36,6 +36,12 @@ class ViewController: UIViewController {
         setupNavigationBar()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.setNavigationBarHidden(false, animated: animated)
+        
+    }
+    
     func configureTest() {
         view.addSubview(testLabel)
         testLabel.translatesAutoresizingMaskIntoConstraints = false

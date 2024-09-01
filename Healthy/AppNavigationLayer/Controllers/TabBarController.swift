@@ -25,7 +25,7 @@ class TabBarController: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        tabBar.setCustomStyle()
+        
     }
     
     override func viewDidLayoutSubviews() {

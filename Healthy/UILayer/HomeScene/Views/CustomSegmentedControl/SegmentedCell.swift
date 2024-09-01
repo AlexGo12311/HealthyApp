@@ -92,7 +92,7 @@ fileprivate extension SegmentedCell {
         noInfoLabel.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            noInfoLabel.centerYAnchor.constraint(equalTo: informationView.centerYAnchor),
+            noInfoLabel.centerYAnchor.constraint(equalTo: informationView.centerYAnchor, constant: -85),
             noInfoLabel.centerXAnchor.constraint(equalTo: informationView.centerXAnchor)
         ])
     }
