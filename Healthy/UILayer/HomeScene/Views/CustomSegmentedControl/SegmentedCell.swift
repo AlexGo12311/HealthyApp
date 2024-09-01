@@ -6,10 +6,9 @@
 //
 
 import UIKit
-//H: 424
 
 class SegmentedCell: UITableViewCell {
-    
+
     static let identifier = "SegmentedCell"
     
     private let view: UIView = {
@@ -18,21 +17,37 @@ class SegmentedCell: UITableViewCell {
         return view
     }()
     
-    private let informationView: UIView = {
+    private lazy var postsView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.axis = .vertical
+        stackView.spacing = 16
+        stackView.alignment = .fill
+        stackView.distribution = .fill
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        return stackView
+    }()
+    
+    private lazy var articlesView: UIView = {
         let view = UIView()
         view.backgroundColor = .clear
+        view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
     
-    private let noInfoLabel: UILabel = {
+    private lazy var noInfoLabel: UILabel = {
         let label = UILabel()
         label.text = "No information"
         label.textColor = AccentColors.textGray
         label.font = .Montserrat.SemiBold.size(of: 18)
+        label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
     private let segmentedControl = HealthySegmentedControl(buttonText: "Posts", "Articles")
+    
+    private var currentView: UIView?
+    private var isPostsLoaded = false
+    private var isArticlesLoaded = false
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -46,24 +61,20 @@ class SegmentedCell: UITableViewCell {
     override func layoutSubviews() {
         view.frame = contentView.bounds
     }
-
 }
 
-
 fileprivate extension SegmentedCell {
-    func setupLayout() {
-        setupView()
-        setupSegmentedButton()
-        setupInformationView()
-        setupNoInfoLabel()
-    }
     
-    func setupView() {
+    func setupLayout() {
         contentView.addSubview(view)
+        setupSegmentedButton()
+        setupPostsView()
+        setupArticlesView()
     }
     
     func setupSegmentedButton() {
         view.addSubview(segmentedControl)
+        segmentedControl.delegate = self
         setupShadow(segmentedControl)
         segmentedControl.translatesAutoresizingMaskIntoConstraints = false
         
@@ -75,25 +86,86 @@ fileprivate extension SegmentedCell {
         ])
     }
     
-    func setupInformationView() {
-        view.addSubview(informationView)
-        informationView.translatesAutoresizingMaskIntoConstraints = false
+    func setupPostsView() {
+        view.addSubview(postsView)
         
         NSLayoutConstraint.activate([
-            informationView.topAnchor.constraint(equalTo: segmentedControl.bottomAnchor, constant: 8),
-            informationView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            informationView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            informationView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+            postsView.topAnchor.constraint(equalTo: segmentedControl.bottomAnchor, constant: 8),
+            postsView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            postsView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            postsView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+        ])
+        
+        postsView.isHidden = true
+    }
+    
+    func setupArticlesView() {
+        view.addSubview(articlesView)
+        
+        NSLayoutConstraint.activate([
+            articlesView.topAnchor.constraint(equalTo: segmentedControl.bottomAnchor, constant: 8),
+            articlesView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            articlesView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            articlesView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+        ])
+        
+        articlesView.isHidden = true
+        articlesView.addSubview(noInfoLabel)
+        
+        NSLayoutConstraint.activate([
+            noInfoLabel.centerYAnchor.constraint(equalTo: articlesView.centerYAnchor, constant: -85),
+            noInfoLabel.centerXAnchor.constraint(equalTo: articlesView.centerXAnchor)
         ])
     }
     
-    func setupNoInfoLabel() {
-        informationView.addSubview(noInfoLabel)
-        noInfoLabel.translatesAutoresizingMaskIntoConstraints = false
+    func loadPostsContent() {
+        if !isPostsLoaded {
+            let titles = ["Hello, World", "Hello, World", "Hello, World"]
+            let texts = ["Lorem ipsum dollam", "Lorem ipsum dollam", "Lorem ipsum dollam"]
+            let images = [UIImage(resource: .investigations1), UIImage(resource: .investigations2), UIImage(resource: .investigations3)]
+            
+            postsView.arrangedSubviews.forEach { $0.removeFromSuperview() } // Clear previous content
+            
+            images.enumerated().forEach {
+                let button = CellView()
+                button.mainImage.image = $0.element
+                button.mainTextLabel.text = texts[$0.offset]
+                button.titleLabel.text = titles[$0.offset]
+                button.tag = $0.offset
+                postsView.addArrangedSubview(button)
+            }
+            isPostsLoaded = true // Помечаем, что контент загружен
+        }
+    }
+    
+    func switchView(to: UIView) {
+        [postsView, articlesView].forEach { $0.isHidden = true }
+        to.isHidden = false
+        currentView = to
         
-        NSLayoutConstraint.activate([
-            noInfoLabel.centerYAnchor.constraint(equalTo: informationView.centerYAnchor, constant: -85),
-            noInfoLabel.centerXAnchor.constraint(equalTo: informationView.centerXAnchor)
-        ])
+        if to == postsView && !isPostsLoaded {
+            loadPostsContent()
+        } else if to == articlesView && !isArticlesLoaded {
+            loadArticlesContent()
+        }
+    }
+    
+    func loadArticlesContent() {
+        // В этом месте вы можете добавить логику загрузки контента для articlesView
+        isArticlesLoaded = true // Помечаем, что контент загружен
     }
 }
+
+extension SegmentedCell: HealthySegmentedControlDelegate {
+    func segmentedDidTapped(_ sender: SegmentedButton) {
+        switch sender.tag {
+        case 0:
+            switchView(to: postsView)
+        case 1:
+            switchView(to: articlesView)
+        default:
+            break
+        }
+    }
+}
+

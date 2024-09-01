@@ -7,7 +7,13 @@
 
 import UIKit
 
+protocol HealthySegmentedControlDelegate: AnyObject {
+    func segmentedDidTapped(_ sender: SegmentedButton)
+}
+
 class HealthySegmentedControl: UIView {
+    
+    weak var delegate: HealthySegmentedControlDelegate?
     
     private let stackView: UIStackView = {
         let stack = UIStackView()
@@ -42,7 +48,9 @@ class HealthySegmentedControl: UIView {
         }
         
         DispatchQueue.main.async {
-            self.buttonArray.first?.isActive = true
+            guard let choosenButton = self.buttonArray.first else { return }
+            choosenButton.isActive = true
+            self.delegate?.segmentedDidTapped(choosenButton)
             self.widthConstraint.constant = self.stackView.arrangedSubviews[0].frame.width
         }
     }
@@ -50,6 +58,8 @@ class HealthySegmentedControl: UIView {
     @objc private func segmentedButtonTapped(sender: SegmentedButton) {
         widthConstraint.constant = stackView.arrangedSubviews[sender.tag].frame.width
         leadingConstraint.constant = stackView.arrangedSubviews[sender.tag].frame.origin.x
+        
+        delegate?.segmentedDidTapped(sender)
         
         UIView.animate(withDuration: 0.3) {
             self.buttonArray.forEach { button in
