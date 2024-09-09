@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4D01041D2C86D15600ECC702 /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D01041C2C86D15600ECC702 /* SearchController.swift */; };
+		4D01041F2C881A1500ECC702 /* HealthSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D01041E2C881A1500ECC702 /* HealthSearchBar.swift */; };
+		4D0104212C88A48100ECC702 /* SearchControllerBackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0104202C88A48100ECC702 /* SearchControllerBackButton.swift */; };
 		4D13F2002C53BC2C00569543 /* OnboardingFlowFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D13F1FF2C53BC2C00569543 /* OnboardingFlowFactory.swift */; };
 		4D13F2022C53BD0100569543 /* MainFlowFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D13F2012C53BD0100569543 /* MainFlowFactory.swift */; };
 		4D15B6BB2C8096C500D16F19 /* HealthySegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D15B6BA2C8096C500D16F19 /* HealthySegmentedControl.swift */; };
@@ -81,6 +84,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4D01041C2C86D15600ECC702 /* SearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchController.swift; sourceTree = "<group>"; };
+		4D01041E2C881A1500ECC702 /* HealthSearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthSearchBar.swift; sourceTree = "<group>"; };
+		4D0104202C88A48100ECC702 /* SearchControllerBackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchControllerBackButton.swift; sourceTree = "<group>"; };
 		4D13F1FF2C53BC2C00569543 /* OnboardingFlowFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingFlowFactory.swift; sourceTree = "<group>"; };
 		4D13F2012C53BD0100569543 /* MainFlowFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainFlowFactory.swift; sourceTree = "<group>"; };
 		4D15B6BA2C8096C500D16F19 /* HealthySegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthySegmentedControl.swift; sourceTree = "<group>"; };
@@ -403,6 +409,8 @@
 			isa = PBXGroup;
 			children = (
 				4DB7447C2C7B243700715D92 /* SearchBarCell.swift */,
+				4D01041C2C86D15600ECC702 /* SearchController.swift */,
+				4D0104202C88A48100ECC702 /* SearchControllerBackButton.swift */,
 			);
 			path = SearchBar;
 			sourceTree = "<group>";
@@ -436,6 +444,7 @@
 				4DFE906A2C64CBBC00B4A9D4 /* SearchField.swift */,
 				4DFE907C2C6A74E800B4A9D4 /* BackButton.swift */,
 				4D15B6F62C846EB700D16F19 /* CellView.swift */,
+				4D01041E2C881A1500ECC702 /* HealthSearchBar.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -577,12 +586,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				4DFE90692C64B9FC00B4A9D4 /* SearchHeaderUIView.swift in Sources */,
+				4D01041D2C86D15600ECC702 /* SearchController.swift in Sources */,
 				4DFE905D2C62256800B4A9D4 /* SearchViewController.swift in Sources */,
 				4DB8D1322C57ED2E00A73EDF /* AuthBottomView.swift in Sources */,
 				4D65E54F2C4EB38E00FA85A1 /* UIFont+Ext.swift in Sources */,
 				4D65E4BC2C4EA71E00FA85A1 /* ViewController.swift in Sources */,
 				4DFE90672C63906B00B4A9D4 /* SymptomsTableViewCell.swift in Sources */,
 				4D65E5642C4FA12400FA85A1 /* AppointmentCoordinator.swift in Sources */,
+				4D0104212C88A48100ECC702 /* SearchControllerBackButton.swift in Sources */,
 				4D65E5622C4FA0E000FA85A1 /* SearchCoordinator.swift in Sources */,
 				4D9BF2C92C5520D5009ACAFA /* MainTextField.swift in Sources */,
 				4DE793C92C5CF6C500FA40BA /* AuthFlowFactory.swift in Sources */,
@@ -602,6 +613,7 @@
 				4D13F2002C53BC2C00569543 /* OnboardingFlowFactory.swift in Sources */,
 				4D15B6BF2C81BEB200D16F19 /* SegmentedButton.swift in Sources */,
 				4D903F822C612B550006CE60 /* SearchSceneFactory.swift in Sources */,
+				4D01041F2C881A1500ECC702 /* HealthSearchBar.swift in Sources */,
 				4D15B6C12C81D1B500D16F19 /* SegmentedCell.swift in Sources */,
 				4DFE906F2C660D6C00B4A9D4 /* CustomButtonForStack.swift in Sources */,
 				4D903F802C6118360006CE60 /* AuthCoordinator.swift in Sources */,

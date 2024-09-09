@@ -7,9 +7,36 @@
 
 import UIKit
 
+protocol SegmentedCellDelegate: AnyObject {
+    func segmentedCellDidTapped(_ sender: CellView)
+}
+
 class SegmentedCell: UITableViewCell {
 
     static let identifier = "SegmentedCell"
+    weak var delegate: SegmentedCellDelegate?
+    
+    private var postsTitles: [String]?
+    private var postsImages: [UIImage]?
+    private var postsTexts: [String]?
+    
+    private var articlesTitles: [String]?
+    private var articlesImages: [UIImage]?
+    private var articlesTexts: [String]?
+    
+    @objc private func viewTapped(_ sender: UITapGestureRecognizer) {
+        guard let sender = sender.view as? CellView else { return }
+        switch sender.tag {
+        case 0:
+            delegate?.segmentedCellDidTapped(sender)
+        case 1:
+            delegate?.segmentedCellDidTapped(sender)
+        case 2:
+            delegate?.segmentedCellDidTapped(sender)
+        default:
+            return
+        }
+    }
     
     private let view: UIView = {
         let view = UIView()
@@ -60,6 +87,12 @@ class SegmentedCell: UITableViewCell {
     
     override func layoutSubviews() {
         view.frame = contentView.bounds
+    }
+    
+    func configureCell(postsTitles: [String], postsImages: [UIImage], postsTexts: [String]) {
+        self.postsTitles = postsTitles
+        self.postsTexts = postsTexts
+        self.postsImages = postsImages
     }
 }
 
@@ -120,14 +153,21 @@ fileprivate extension SegmentedCell {
     
     func loadPostsContent() {
         if !isPostsLoaded {
-            let titles = ["Hello, World", "Hello, World", "Hello, World"]
-            let texts = ["Lorem ipsum dollam", "Lorem ipsum dollam", "Lorem ipsum dollam"]
-            let images = [UIImage(resource: .investigations1), UIImage(resource: .investigations2), UIImage(resource: .investigations3)]
+            let titles = postsTitles
+            let texts = postsTexts
+            let images = postsImages
             
             postsView.arrangedSubviews.forEach { $0.removeFromSuperview() } // Clear previous content
             
+            guard let images = images else { return }
+            guard let texts = texts else { return }
+            guard let titles = titles else { return }
+            
             images.enumerated().forEach {
                 let button = CellView()
+                let tapGesture = UITapGestureRecognizer(target: self, action: #selector(viewTapped(_:)))
+                button.addGestureRecognizer(tapGesture)
+                button.isUserInteractionEnabled = true
                 button.mainImage.image = $0.element
                 button.mainTextLabel.text = texts[$0.offset]
                 button.titleLabel.text = titles[$0.offset]

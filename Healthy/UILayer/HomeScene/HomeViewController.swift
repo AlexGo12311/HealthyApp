@@ -17,6 +17,12 @@ class HomeViewController: UIViewController {
         static let time = "12:00-13:00"
     }
     
+    struct SegmentedData {
+        static let postsImages = [UIImage(resource: .man), UIImage(resource: .woman), UIImage(resource: .investigations3)]
+        static let postsTitles = ["Cardiology and workout?", "What is the Nutrition Crisis?", "What is the Replication Crisis?"]
+        static let postsTetxs = ["Although approximately 86% of practicing cardiologists surveyed see patients who are workout ever...", "This article will look at this subject, providing a brief overview of this subject.", "This article will look at this subject, providing a brief overview of this subject."]
+    }
+    
     private enum sections: Int {
         case search
         case nearestVisit
@@ -90,6 +96,7 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
         case sections.search.rawValue:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: SearchBarCell.identifier, for: indexPath) as? SearchBarCell else { return UITableViewCell() }
             setupShadow(cell)
+            cell.delegate = self
             return cell
         case sections.nearestVisit.rawValue:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: NearestTableViewCell.identifier, for: indexPath) as? NearestTableViewCell else { return UITableViewCell() }
@@ -99,6 +106,8 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
             return cell
         case sections.segmented.rawValue:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: SegmentedCell.identifier, for: indexPath) as? SegmentedCell else { return UITableViewCell() }
+            cell.configureCell(postsTitles: SegmentedData.postsTitles, postsImages: SegmentedData.postsImages, postsTexts: SegmentedData.postsTetxs)
+            cell.delegate = self
             return cell
         default:
             return UITableViewCell()
@@ -157,4 +166,19 @@ extension HomeViewController: NearestTableViewCellDelegate {
     }
     
     
+}
+
+extension HomeViewController: SegmentedCellDelegate {
+    func segmentedCellDidTapped(_ sender: CellView) {
+        let vc = ViewController()
+        vc.title = "Posts"
+        navigationController?.pushViewController(vc, animated: true)
+    }
+}
+
+extension HomeViewController: SearchBarCellDelegate {
+    func searchBarDidTapped() {
+        let vc = SearchController()
+        navigationController?.pushViewController(vc, animated: false)
+    }
 }

@@ -123,6 +123,17 @@ class NearestTableViewCell: UITableViewCell {
     private let resheduleButton = MainButton(appearence: .fill, title: "Reshedule")
     private let cancelButton = MainButton(appearence: .plain, title: "Cancel")
     
+    @objc private func buttonTapped(_ sender: MainButton) {
+        switch sender {
+        case resheduleButton:
+            delegate?.didTappedReschedule()
+        case cancelButton:
+            delegate?.didTappedCancel()
+        default:
+            return
+        }
+    }
+    
 //    resheduleButton.action = delegate?.didTappedReschedule
 //    cancelButton.action = delegate?.didTappedCancel
 //    
@@ -163,6 +174,7 @@ private extension NearestTableViewCell {
         setupRaitingLabel()
         setupAppointmentView()
         setupStack()
+        setupButtons()
     }
     
     func setupMainView() {
@@ -320,23 +332,10 @@ private extension NearestTableViewCell {
         ])
     }
     
-    func setupCancelButton() {
-        let tapGeasture = UITapGestureRecognizer(target: self, action: #selector(viewTapped(_:)))
-        cancelButton.addGestureRecognizer(tapGeasture)
-        cancelButton.isUserInteractionEnabled = true
+    func setupButtons() {
+        resheduleButton.addTarget(self, action: #selector(buttonTapped(_:)), for: .touchUpInside)
+        cancelButton.addTarget(self, action: #selector(buttonTapped(_:)), for: .touchUpInside)
     }
     
-    // TODO: Make it work
-    @objc private func viewTapped(_ sender: UITapGestureRecognizer) {
-        guard let sender = sender.view else { return }
-        switch sender {
-        case cancelButton:
-            delegate?.didTappedCancel()
-        case resheduleButton:
-            delegate?.didTappedReschedule()
-        default:
-            return
-        }
-    }
     
 }

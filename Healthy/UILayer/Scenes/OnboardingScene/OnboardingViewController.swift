@@ -78,14 +78,12 @@ private extension OnboardingViewController {
             contextButton.heightAnchor.constraint(equalToConstant: 48)
         ])
         
-        contextButton.action = { [ weak self ] in
-            self?.buttonPressed()
+        contextButton.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
         }
     }
-}
 
 extension OnboardingViewController {
-    func buttonPressed() {
+    @objc func buttonPressed() {
         switch pageControl.currentPage {
         case 0:
             pageControl.currentPage = 1

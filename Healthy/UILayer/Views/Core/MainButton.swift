@@ -13,11 +13,10 @@ enum MainButtonStyle {
     case greyFill
 }
 
-class MainButton: UIView {
+class MainButton: UIButton {
     var buttonStyle: MainButtonStyle
-    private let button = UIButton()
+
     private var buttonTitle: String
-    var action: (() -> Void)?
     
     init(appearence: MainButtonStyle, title: String) {
         self.buttonStyle = appearence
@@ -36,56 +35,37 @@ class MainButton: UIView {
     }
     
     func setupButton() {
-        addSubview(button)
-        button.setTitle(buttonTitle, for: .normal)
+        self.setTitle(buttonTitle, for: .normal)
         setAppearence(style: buttonStyle)
-        button.titleLabel?.font = .Montserrat.Regular.size(of: 16)
-        button.layer.cornerRadius = 12
-        
-        button.translatesAutoresizingMaskIntoConstraints = false
-        
-        NSLayoutConstraint.activate([
-            button.bottomAnchor.constraint(equalTo: self.bottomAnchor),
-            button.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            button.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-            button.topAnchor.constraint(equalTo: self.topAnchor)
-        ])
-        
-        button.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
+        self.titleLabel?.font = .Montserrat.Regular.size(of: 16)
+        self.layer.cornerRadius = 12
     }
     
     public func setAppearence(style: MainButtonStyle) {
         switch style {
             
         case .fill:
-            button.backgroundColor = AccentColors.mainBlue
-            button.setTitleColor(.white, for: .normal)
+            self.backgroundColor = AccentColors.mainBlue
+            self.setTitleColor(.white, for: .normal)
         case .plain:
-            button.backgroundColor = .clear
-            button.setTitleColor(AccentColors.mainBlue, for: .normal)
-            button.layer.borderWidth = 1
-            button.layer.borderColor = AccentColors.mainBlue?.cgColor
+            self.backgroundColor = .clear
+            self.setTitleColor(AccentColors.mainBlue, for: .normal)
+            self.layer.borderWidth = 1
+            self.layer.borderColor = AccentColors.mainBlue?.cgColor
         case .greyFill:
-            button.backgroundColor = AccentColors.unselectedIcon
-            button.setTitleColor(.white, for: .normal)
+            self.backgroundColor = AccentColors.unselectedIcon
+            self.setTitleColor(.white, for: .normal)
             
         }
     }
     
     public func setTitle(_ title: String) {
-        self.button.setTitle(title, for: .normal)
+        self.setTitle(title, for: .normal)
     }
-    
-    @objc private func buttonPressed() {
-        guard let action = self.action else { return }
-        action()
-    }
-    
-
 }
 
-//#Preview("MainButton", traits: .fixedLayout(width: 312, height: 48)) {
-//    let button = MainButton(appearence: .plain, title: "Hi")
-//    button.setTitle("Next")
-//    return button
-//}
+#Preview("MainButton", traits: .fixedLayout(width: 312, height: 48)) {
+    let button = MainButton(appearence: .plain, title: "Hi")
+    button.setTitle("Next")
+    return button
+}

@@ -272,9 +272,7 @@ private extension AuthViewController {
     //MARK: - Setup buttons
     func setupSignUpButton() {
         view.addSubview(signUpButton)
-        signUpButton.action = { [ weak self ] in
-            self?.onSignUpTaped()
-        }
+        signUpButton.addTarget(self, action: #selector(onSignUpTaped), for: .touchUpInside)
         signUpButton.translatesAutoresizingMaskIntoConstraints = false
         
         if self.state == .signUp {
@@ -296,9 +294,8 @@ private extension AuthViewController {
     
     func setupLoginButton() {
         view.addSubview(loginButton)
-        loginButton.action = { [ weak self ] in
-            self?.onLoginTapped()
-        }
+        loginButton.addTarget(self, action: #selector(onLoginTapped), for: .touchUpInside)
+        
         if self.state == .login {
             loginButton.setAppearence(style: .fill)
         }
@@ -345,6 +342,7 @@ private extension AuthViewController {
             bottomView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             bottomView.heightAnchor.constraint(equalToConstant: 50)
         ])
+        
         bottomView.action = { [ weak self ] in
             self?.onBottomPressed()
         }
@@ -353,7 +351,7 @@ private extension AuthViewController {
 }
 // MARK: - Private Methods
 private extension AuthViewController {
-    func onSignUpTaped() {
+    @objc func onSignUpTaped() {
         switch state {
         case .initial:
             viewOutput.goToSignUp()
@@ -364,7 +362,7 @@ private extension AuthViewController {
         }
     }
     
-    func onLoginTapped() {
+    @objc func onLoginTapped() {
         switch state {
         case .initial:
             viewOutput.goToSignIn()
